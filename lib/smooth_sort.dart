@@ -1,7 +1,11 @@
 library smooth_sort;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
+import 'package:flutter/material.dart';
+
+class SmoothSort extends RefreshIndicator{
+  const SmoothSort({
+    Key key,
+    Widget child,
+    RefreshCallback onRefresh,
+  }) : super(key: key, child: child, onRefresh: onRefresh);
 }
