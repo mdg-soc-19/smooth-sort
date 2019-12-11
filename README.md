@@ -1,14 +1,16 @@
-# smooth_sort
 
-A new Flutter package.
+#  Smooth Sort
+In today's world, developer's use now and then sorting in their mobile applications. For such developer's, Smooth Sort can become a useful package which provides a wonderful flipping animation while sorting a list. Now-a-days, most of the shopping websites reloads the page again for the sorting the list but instead they can provide this animation.
 
-## Getting Started
+# Algorithm
+The algorithm used to build this project is as follows:
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+I have decided to sort the ListView with single text views by using the default sort method by Dart Language. On clicking the sort button, I would flip each item in the listview and the new updated item will come in its place. 
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+# Work Done
+* I have completed learning the properties of the animated list view in Flutter.
+
+# To-Do
+* Implement the flip animation to each listview item.
+* Update the listview with the updated sorted items.
+
