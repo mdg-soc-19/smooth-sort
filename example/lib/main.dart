@@ -53,9 +53,13 @@ class BodyWidgetState extends State<BodyWidget> with TickerProviderStateMixin {
   LinearGradient linearGradient;
   Color shadowColor;
 
+  SmoothSort smoothSort;
+
   @override
   void initState() {
     super.initState();
+
+    smoothSort = SmoothSort(listType: 'grid', data: ['Horse', 'Cow', 'Camel', 'Sheep', 'Goat', 'Help', 'Guide', 'Hello', 'Ihdid']);
 
     animationController = AnimationController(
         vsync: this, duration: Duration(milliseconds: 1000), value: 1);
@@ -137,11 +141,11 @@ class BodyWidgetState extends State<BodyWidget> with TickerProviderStateMixin {
       color: Colors.black54,
       child: Column(
         children: <Widget>[
-          SmoothSort(listType: 'grid', data: ['Horse', 'Cow', 'Camel', 'Sheep', 'Goat', 'Help', 'Guide', 'Hello', 'Ihdid']),
+          smoothSort,
           RaisedButton(
             child: Text("Sort"),
             onPressed: () {
-              _sortList();
+              smoothSort.onPress();
             },
           )
         ],

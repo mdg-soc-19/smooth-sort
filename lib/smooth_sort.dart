@@ -15,8 +15,15 @@ class SmoothSort extends StatefulWidget {
       this.animationType = 'flipVertically',
       @required this.data});
 
+  _SmoothSortState __smoothSortState = _SmoothSortState();
+
   @override
-  _SmoothSortState createState() => _SmoothSortState();
+  _SmoothSortState createState() => __smoothSortState;
+
+  void onPress() {
+    __smoothSortState.sortList();
+  }
+
 }
 
 class _SmoothSortState extends State<SmoothSort>
@@ -135,9 +142,8 @@ class _SmoothSortState extends State<SmoothSort>
                   height: 150,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                    color: Colors.red
-                  ),
+                      borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                      color: Colors.red),
                   child: ListTile(
                     title: Text(
                       item,
@@ -156,16 +162,29 @@ class _SmoothSortState extends State<SmoothSort>
         {
           return Container(
             child: ListTile(
-              title: Text(
-                "Hello"
-              ),
+              title: Text("Hello"),
             ),
           );
         }
-
-
     }
   }
 
-  void sortList() async {}
+  void sortList() async {
+    switch (widget.animationType) {
+      case 'flipVertically':
+        {
+          await _flipXAnimationController.reverse();
+
+          setState(() {
+            widget.data.sort();
+          });
+
+          await _flipXAnimationController.forward();
+        }
+        break;
+
+      default:
+        {}
+    }
+  }
 }
