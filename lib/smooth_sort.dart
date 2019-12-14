@@ -257,6 +257,18 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      case 'reverseFlipVertically':
+        {
+          await _flipXAnimationController.reverse();
+
+          setState(() {
+            _data.sort();
+          });
+
+          await _flipXAnimationController.forward();
+        }
+        break;
+
       default:
         {}
     }
