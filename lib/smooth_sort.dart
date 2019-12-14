@@ -4,23 +4,23 @@ import 'package:flutter/material.dart';
 
 import 'dart:math';
 
-class SmoothSort extends StatefulWidget{
-
+class SmoothSort extends StatefulWidget {
   String listType;
+  String animationType;
   List<String> data;
 
-  SmoothSort({
-    Key key,
-    this.listType = 'list',
-    @required this.data
-  });
+  SmoothSort(
+      {Key key,
+      this.listType = 'list',
+      this.animationType = 'flipVertically',
+      @required this.data});
 
   @override
   _SmoothSortState createState() => _SmoothSortState();
 }
 
-class _SmoothSortState extends State<SmoothSort> with TickerProviderStateMixin<SmoothSort>{
-
+class _SmoothSortState extends State<SmoothSort>
+    with TickerProviderStateMixin<SmoothSort> {
   GlobalKey<AnimatedListState> _listkey;
 
   AnimationController _flipXAnimationController;
@@ -64,9 +64,11 @@ class _SmoothSortState extends State<SmoothSort> with TickerProviderStateMixin<S
     _scaleAnimationController = AnimationController(
         vsync: this, duration: Duration(milliseconds: 500), value: 1);
 
-    _flipX = Tween<double>(begin: -0.5, end: 0).animate(_flipXAnimationController);
+    _flipX =
+        Tween<double>(begin: -0.5, end: 0).animate(_flipXAnimationController);
 
-    _flipY = Tween<double>(begin: -0.5, end: 0).animate(_flipYAnimationController);
+    _flipY =
+        Tween<double>(begin: -0.5, end: 0).animate(_flipYAnimationController);
 
     _listSlideRight = Tween<Offset>(begin: Offset(1, 0), end: Offset(0, 0))
         .animate(_slideAnimationController);
@@ -100,36 +102,70 @@ class _SmoothSortState extends State<SmoothSort> with TickerProviderStateMixin<S
 
     animatedGrid = GridView.builder(
       itemCount: widget.data.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+      gridDelegate:
+          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
       itemBuilder: (BuildContext context, int index) {
         return buildListItem(widget.data[index], null, index);
       },
     );
-
   }
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 520,
-      child: (widget.listType == 'list') ?
-        animatedList
-      : animatedGrid,
+      child: (widget.listType == 'list') ? animatedList : animatedGrid,
     );
   }
 
   Widget buildListItem(String item, Animation animation, int index) {
-    return Container(
-      child: ListTile(
-        title: Text(
-          item
-        ),
-      ),
-    );
+    switch (widget.animationType) {
+      case 'flipVertically':
+        {
+          return AnimatedBuilder(
+            animation: _flipX,
+            builder: (BuildContext context, Widget child) {
+              return Transform(
+                transform: Matrix4.identity()
+                  ..setEntry(3, 2, 0.0002)
+                  ..rotateX(pi * _flipX.value),
+                alignment: Alignment.center,
+                child: Container(
+                  margin: EdgeInsets.all(10.0),
+                  height: 150,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                    color: Colors.red
+                  ),
+                  child: ListTile(
+                    title: Text(
+                      item,
+                      style: TextStyle(fontSize: 20),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+              );
+            },
+          );
+        }
+        break;
+
+      default:
+        {
+          return Container(
+            child: ListTile(
+              title: Text(
+                "Hello"
+              ),
+            ),
+          );
+        }
+
+
+    }
   }
 
-  void sortList() async {
-
-  }
-
+  void sortList() async {}
 }
