@@ -188,6 +188,38 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      case 'reverseFlipVertically':
+        {
+          return AnimatedBuilder(
+            animation: _flipX,
+            builder: (BuildContext context, Widget child) {
+              return   Transform(
+                transform: Matrix4.identity()
+                  ..setEntry(3, 2, 0.0002)
+                  ..rotateX(2 * pi - pi * _flipX.value),
+                alignment: Alignment.center,
+                child: Container(
+                  margin: EdgeInsets.all(10.0),
+                  height: 150,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                    color: Colors.red
+                  ),
+                  child: ListTile(
+                    title: Text(
+                      item,
+                      style: TextStyle(fontSize: 20),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+              );
+            },
+          );
+        }
+        break;
+
       default:
         {
           return Container(
