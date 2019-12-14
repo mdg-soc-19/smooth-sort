@@ -23,7 +23,6 @@ class SmoothSort extends StatefulWidget {
   void onPress() {
     __smoothSortState.sortList();
   }
-
 }
 
 class _SmoothSortState extends State<SmoothSort>
@@ -48,11 +47,13 @@ class _SmoothSortState extends State<SmoothSort>
 
   Animation<double> _positiveScale, __negativeScale, _listScaleValue;
 
-  Widget animatedList, animatedGrid;
+  List<String> _data;
 
   @override
   void initState() {
     super.initState();
+
+    _data = widget.data;
 
     _listkey = GlobalKey();
 
@@ -98,30 +99,28 @@ class _SmoothSortState extends State<SmoothSort>
     _listPosition = _listSlideRight;
     _listFadeValue = _fadeOut;
     _listScaleValue = _positiveScale;
-
-    animatedList = AnimatedList(
-      key: _listkey,
-      initialItemCount: widget.data.length,
-      itemBuilder: (context, index, animation) {
-        return buildListItem(widget.data[index], animation, index);
-      },
-    );
-
-    animatedGrid = GridView.builder(
-      itemCount: widget.data.length,
-      gridDelegate:
-          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-      itemBuilder: (BuildContext context, int index) {
-        return buildListItem(widget.data[index], null, index);
-      },
-    );
   }
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 520,
-      child: (widget.listType == 'list') ? animatedList : animatedGrid,
+      child: (widget.listType == 'list')
+          ? AnimatedList(
+              key: _listkey,
+              initialItemCount: _data.length,
+              itemBuilder: (context, index, animation) {
+                return buildListItem(_data[index], animation, index);
+              },
+            )
+          : GridView.builder(
+              itemCount: _data.length,
+              gridDelegate:
+                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+              itemBuilder: (BuildContext context, int index) {
+                return buildListItem(_data[index], null, index);
+              },
+            ),
     );
   }
 
@@ -160,7 +159,7 @@ class _SmoothSortState extends State<SmoothSort>
 
       case 'flipHorizontally':
         {
-          AnimatedBuilder(
+          return AnimatedBuilder(
             animation: _flipY,
             builder: (BuildContext context, Widget child) {
               return Transform(
@@ -174,8 +173,7 @@ class _SmoothSortState extends State<SmoothSort>
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                      color: Colors.red
-                  ),
+                      color: Colors.red),
                   child: ListTile(
                     title: Text(
                       item,
@@ -208,10 +206,22 @@ class _SmoothSortState extends State<SmoothSort>
           await _flipXAnimationController.reverse();
 
           setState(() {
-            widget.data.sort();
+            _data.sort();
           });
 
           await _flipXAnimationController.forward();
+        }
+        break;
+
+      case 'flipHorizontally':
+        {
+          await _flipYAnimationController.reverse();
+
+          setState(() {
+            _data.sort();
+          });
+
+          await _flipYAnimationController.forward();
         }
         break;
 
