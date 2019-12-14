@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:smooth_sort/smooth_sort.dart';
 
 void main() => runApp(MyApp());
 
@@ -136,16 +137,7 @@ class BodyWidgetState extends State<BodyWidget> with TickerProviderStateMixin {
       color: Colors.black54,
       child: Column(
         children: <Widget>[
-          SizedBox(
-            height: 520,
-            child: AnimatedList(
-              key: _listKey,
-              initialItemCount: _data.length,
-              itemBuilder: (context, index, animation) {
-                return _buildItem(_data[index], animation, index);
-              },
-            ),
-          ),
+          SmoothSort(listType: 'grid', data: ['Horse', 'Cow', 'Camel', 'Sheep', 'Goat', 'Help', 'Guide', 'Hello', 'Ihdid']),
           RaisedButton(
             child: Text("Sort"),
             onPressed: () {

@@ -6,12 +6,14 @@ import 'dart:math';
 
 class SmoothSort extends StatefulWidget{
 
-  const SmoothSort({
-    Key key,
-    this.child
-});
+  String listType;
+  List<String> data;
 
-  final ListView child;
+  SmoothSort({
+    Key key,
+    this.listType = 'list',
+    @required this.data
+  });
 
   @override
   _SmoothSortState createState() => _SmoothSortState();
@@ -19,9 +21,7 @@ class SmoothSort extends StatefulWidget{
 
 class _SmoothSortState extends State<SmoothSort> with TickerProviderStateMixin<SmoothSort>{
 
-  GlobalKey<AnimatedListState> _listkey = GlobalKey();
-
-  List<String> _data;
+  GlobalKey<AnimatedListState> _listkey;
 
   AnimationController _flipXAnimationController;
   AnimationController _flipYAnimationController;
@@ -41,9 +41,13 @@ class _SmoothSortState extends State<SmoothSort> with TickerProviderStateMixin<S
 
   Animation<double> _positiveScale, __negativeScale, _listScaleValue;
 
+  Widget animatedList, animatedGrid;
+
   @override
   void initState() {
     super.initState();
+
+    _listkey = GlobalKey();
 
     _flipXAnimationController = AnimationController(
         vsync: this, duration: Duration(milliseconds: 1000), value: 1);
@@ -86,18 +90,41 @@ class _SmoothSortState extends State<SmoothSort> with TickerProviderStateMixin<S
     _listFadeValue = _fadeOut;
     _listScaleValue = _positiveScale;
 
+    animatedList = AnimatedList(
+      key: _listkey,
+      initialItemCount: widget.data.length,
+      itemBuilder: (context, index, animation) {
+        return buildListItem(widget.data[index], animation, index);
+      },
+    );
+
+    animatedGrid = GridView.builder(
+      itemCount: widget.data.length,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+      itemBuilder: (BuildContext context, int index) {
+        return buildListItem(widget.data[index], null, index);
+      },
+    );
+
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-
+    return SizedBox(
+      height: 520,
+      child: (widget.listType == 'list') ?
+        animatedList
+      : animatedGrid,
     );
   }
 
   Widget buildListItem(String item, Animation animation, int index) {
     return Container(
-
+      child: ListTile(
+        title: Text(
+          item
+        ),
+      ),
     );
   }
 
