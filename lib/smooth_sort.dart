@@ -41,7 +41,8 @@ class _SmoothSortState extends State<SmoothSort>
   Animation<double> _flipX;
   Animation<double> _flipY;
 
-  Animation<Offset> _listSlideRight, _newListSlideRight, _listPosition;
+  Animation<Offset> _listSlideRight, _newListSlideRight, _listPositionRight;
+  Animation<Offset> _listSlideLeft, _newListSlideLeft, _listPositionLeft;
 
   Animation<double> _fadeIn, _fadeOut, _listFadeValue;
 
@@ -78,10 +79,16 @@ class _SmoothSortState extends State<SmoothSort>
     _flipY =
         Tween<double>(begin: -0.5, end: 0).animate(_flipYAnimationController);
 
-    _listSlideRight = Tween<Offset>(begin: Offset(1, 0), end: Offset(0, 0))
+    _listSlideRight = Tween<Offset>(begin: Offset(1, 0), end: Offset.zero)
         .animate(_slideAnimationController);
 
     _newListSlideRight = Tween<Offset>(begin: Offset(-1, 0), end: Offset.zero)
+        .animate(_slideAnimationController);
+
+    _listSlideLeft = Tween<Offset>(begin: Offset(-1, 0), end: Offset(0, 0))
+        .animate(_slideAnimationController);
+
+    _newListSlideLeft = Tween<Offset>(begin: Offset(1, 0), end: Offset.zero)
         .animate(_slideAnimationController);
 
     _fadeOut =
@@ -96,7 +103,8 @@ class _SmoothSortState extends State<SmoothSort>
     __negativeScale =
         Tween<double>(begin: 1.0, end: 0.0).animate(_scaleAnimationController);
 
-    _listPosition = _listSlideRight;
+    _listPositionRight = _listSlideRight;
+    _listPositionLeft = _listSlideLeft;
     _listFadeValue = _fadeOut;
     _listScaleValue = _positiveScale;
   }
@@ -255,7 +263,7 @@ class _SmoothSortState extends State<SmoothSort>
       case 'slideRight':
         {
           return SlideTransition(
-            position: _listPosition,
+            position: _listPositionRight,
             child: Container(
               margin: EdgeInsets.all(10.0),
               height: 150,
@@ -275,6 +283,29 @@ class _SmoothSortState extends State<SmoothSort>
           );
         }
         break;
+
+      case 'slideLeft':
+        {
+          return SlideTransition(
+            position: _listPositionLeft,
+            child: Container(
+              margin: EdgeInsets.all(10.0),
+              height: 150,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                  color: Colors.red
+              ),
+              child: ListTile(
+                title: Text(
+                  item,
+                  style: TextStyle(fontSize: 20),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+          );
+        }
 
       default:
         {
@@ -343,7 +374,7 @@ class _SmoothSortState extends State<SmoothSort>
 
           setState(() {
             _data.sort();
-            _listPosition = _newListSlideRight;
+            _listPositionRight = _newListSlideRight;
           });
 
           _slideAnimationController.reset();
