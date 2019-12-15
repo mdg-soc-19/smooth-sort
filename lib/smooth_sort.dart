@@ -252,7 +252,7 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
-      case 'rightSlideTransition':
+      case 'slideRight':
         {
           return SlideTransition(
             position: _listPosition,
@@ -334,6 +334,21 @@ class _SmoothSortState extends State<SmoothSort>
           });
 
           await _flipYAnimationController.forward();
+        }
+        break;
+
+      case 'slideRight':
+        {
+          await _slideAnimationController.reverse();
+
+          setState(() {
+            _data.sort();
+            _listPosition = _newListSlideRight;
+          });
+
+          _slideAnimationController.reset();
+          await _slideAnimationController.forward();
+
         }
         break;
 
