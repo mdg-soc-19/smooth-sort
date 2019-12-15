@@ -65,10 +65,10 @@ class _SmoothSortState extends State<SmoothSort>
         vsync: this, duration: Duration(milliseconds: 1000), value: 1);
 
     _slideAnimationController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 500), value: 1);
+        vsync: this, duration: Duration(milliseconds: 1000), value: 1);
 
     _fadeAnimationController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 500), value: 1);
+        vsync: this, duration: Duration(milliseconds: 1000), value: 1);
 
     _scaleAnimationController = AnimationController(
         vsync: this, duration: Duration(milliseconds: 500), value: 1);
@@ -417,6 +417,20 @@ class _SmoothSortState extends State<SmoothSort>
 
           _slideAnimationController.reset();
           await _slideAnimationController.forward();
+        }
+        break;
+
+      case 'cardFade':
+        {
+          await _fadeAnimationController.reverse();
+
+          setState(() {
+            _data.sort();
+            _listFadeValue = _fadeIn;
+          });
+
+          _fadeAnimationController.reset();
+          await _fadeAnimationController.reverse();
         }
         break;
 
