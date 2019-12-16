@@ -1,3 +1,4 @@
+
 # <div align="center">Smooth Sort</div>
 
 <div align="center">  
@@ -108,24 +109,41 @@
 </div>
 
 # Usage
-For adding the SmoothSort in your Flutter app, you have to simply provide the options for ListView or GridView with the input list of strings. Also you can select the animationType, cardColor, linearGradient for card, borderRadius etc.
+For adding the SmoothSort in your Flutter app, you have to simply provide the options for ListView or GridView with the list of the widgets to be displayed in the list/grid with the another list of their corresponding itemIds.
 
 For example:
 First create the object for SmoothSort 
 ```dart
 SmoothSort smoothSort = SmoothSort(
-	listType: 'list',	// specify the listType i.e. list or grid
-	data: _data,	// list of strings
-	animationType: 'reverseFlipHorizontally',	// specify the type of animation you want
-	cardColor: Colors.green,	// give the color to the card if you want
-	linearGradient: LinearGradient(  
-		    colors: [Colors.yellow[700], Colors.redAccent],  
-			begin: Alignment.centerLeft,  
-			end: Alignment.centerRight,  
-			tileMode: TileMode.clamp
-		),	// give the changing color to the card 
-	cardBorderRadius: BorderRadius.all(Radius.circular(35.0)),	// border radius for the card
-	cardMargin: EdgeInsets.all(10.0)	// margin for the card
+	listType: 'list',	 // specify the listType i.e. list or grid
+	itemList: [  
+	  Container(  
+	    color: Colors.red,  
+	    alignment: Alignment.center,  
+		child: Text(  
+		    "A",  
+	        style: TextStyle(fontSize: 150.0),  
+		    ),  
+	  ),  
+	  Container(  
+	    color: Colors.blueAccent,  
+	    alignment: Alignment.center,  
+	    child: Text(  
+		    "B",  
+	        style: TextStyle(fontSize: 150.0),  
+			),  
+	  ),  
+	  Container(  
+	    color: Colors.yellowAccent,  
+	    alignment: Alignment.center,  
+	    child: Text(  
+		    "C",  
+	        style: TextStyle(fontSize: 150.0),  
+			),  
+	  ),   
+	],					// specify the list of widgets for the ListView/GridView
+	itemIdList: [1, 2, 0],		// specify the corresponding ids for widgets	
+	animationType: 'cardScale'	// specify the type of animation you want
 );
 ```
 
@@ -143,7 +161,7 @@ After this, just call the `smoothSort.onPress()` method to start the animation f
 RaisedButton(  
   child: Text("Sort"),  
   onPressed: () {  
-    smoothSort.onPress();  
+    smoothSort.onPress();	// just call the onPress method
   },  
 )
 ```
