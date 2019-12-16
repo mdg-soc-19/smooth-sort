@@ -65,7 +65,7 @@ class _SmoothSortState extends State<SmoothSort>
         vsync: this, duration: Duration(milliseconds: 1000), value: 1);
 
     _slideAnimationController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 1000), value: 1);
+        vsync: this, duration: Duration(milliseconds: 500), value: 1);
 
     _listFadeAnimationController = AnimationController(
         vsync: this, duration: Duration(milliseconds: 1000), value: 1);
@@ -492,6 +492,19 @@ class _SmoothSortState extends State<SmoothSort>
         break;
 
       case 'cardSlideRight':
+        {
+          await _slideAnimationController.reverse();
+
+          setState(() {
+            _data.sort();
+            _listPositionRight = _newListSlideRight;
+          });
+
+          await _slideAnimationController.forward();
+        }
+        break;
+
+      case 'textSlideRight':
         {
           await _slideAnimationController.reverse();
 
