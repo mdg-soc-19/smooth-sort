@@ -9,6 +9,7 @@
 * [Documentation](#documentation)
 * [Algorithm](#algorithm)
 * [Bugs or Requests](#bugs-or-requests)
+* [License](#license)
 
 # Demo
 <div align="center">
@@ -156,3 +157,7 @@ For more info, please refer to the  `smooth_sort.dart`.
 If you encounter any problems feel free to open an issue. If you feel the library is  
 missing a feature, please raise a ticket on Github and I'll look into it.  
 Pull request are also welcome.  
+
+# License
+
+SmoothSort is licensed under `MIT license`. View [license](https://github.com/mdg-soc-19/smooth-sort/blob/master/LICENSE).
