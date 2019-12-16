@@ -37,9 +37,6 @@ class BodyWidgetState extends State<BodyWidget> with TickerProviderStateMixin {
     'Ihdid'
   ];
 
-  LinearGradient linearGradient;
-  Color shadowColor;
-
   SmoothSort smoothSort;
 
   @override
@@ -58,8 +55,6 @@ class BodyWidgetState extends State<BodyWidget> with TickerProviderStateMixin {
             tileMode: TileMode.clamp),
         cardBorderRadius: BorderRadius.all(Radius.circular(35.0)),
         cardMargin: EdgeInsets.all(10.0));
-
-    shadowColor = Colors.red;
   }
 
   @override
