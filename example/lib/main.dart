@@ -45,16 +45,36 @@ class BodyWidgetState extends State<BodyWidget> with TickerProviderStateMixin {
 
     smoothSort = SmoothSort(
         listType: 'list',
-        data: _data,
-        animationType: 'reverseFlipHorizontally',
-        cardColor: Colors.green,
-        linearGradient: LinearGradient(
-            colors: [Colors.yellow[700], Colors.redAccent],
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            tileMode: TileMode.clamp),
-        cardBorderRadius: BorderRadius.all(Radius.circular(35.0)),
-        cardMargin: EdgeInsets.all(10.0));
+        itemList: [
+          Card(
+            child: Text(
+                "Hello",
+            ),
+          ),
+          FlutterLogo(),
+          Container(
+            margin: EdgeInsets.all(10.0),
+            height: 150.0,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(15.0)),
+              gradient: LinearGradient(
+                colors: [Colors.yellow[700], Colors.redAccent],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                tileMode: TileMode.clamp)
+            ),
+            child: ListTile(
+              title: Text(
+                "Hello",
+                style: TextStyle(fontSize: 20),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          )
+        ],
+        itemIdList: [2, 1, 0],
+        animationType: 'cardScale');
   }
 
   @override
