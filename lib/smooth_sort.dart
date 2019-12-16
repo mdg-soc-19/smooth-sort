@@ -5,17 +5,27 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 class SmoothSort extends StatefulWidget {
-  String listType;
-  String animationType;
-  List<String> data;
+  final String listType;
+  final String animationType;
+  final List<String> data;
+  final Color cardColor;
+  final LinearGradient linearGradient;
+  final BorderRadius cardBorderRadius;
+  final EdgeInsets cardMargin;
+  final double cardHeight;
 
   SmoothSort(
       {Key key,
       this.listType = 'list',
       this.animationType = 'flipVertically',
+      this.cardColor = Colors.red,
+      this.linearGradient,
+      this.cardBorderRadius,
+      this.cardMargin,
+      this.cardHeight,
       @required this.data});
 
-  _SmoothSortState __smoothSortState = _SmoothSortState();
+  final _SmoothSortState __smoothSortState = _SmoothSortState();
 
   @override
   _SmoothSortState createState() => __smoothSortState;
@@ -34,9 +44,11 @@ class _SmoothSortState extends State<SmoothSort>
 
   AnimationController _slideAnimationController;
 
-  AnimationController _listFadeAnimationController, _newListFadeAnimationController;
+  AnimationController _listFadeAnimationController,
+      _newListFadeAnimationController;
 
-  AnimationController _listScaleAnimationController, _newListScaleAnimationController;
+  AnimationController _listScaleAnimationController,
+      _newListScaleAnimationController;
 
   Animation<double> _flipX;
   Animation<double> _flipY;
@@ -77,10 +89,7 @@ class _SmoothSortState extends State<SmoothSort>
         vsync: this, duration: Duration(milliseconds: 1000), value: 1);
 
     _newListScaleAnimationController = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 1000),
-      value: 1
-    );
+        vsync: this, duration: Duration(milliseconds: 1000), value: 1);
 
     _flipX =
         Tween<double>(begin: -0.5, end: 0).animate(_flipXAnimationController);
@@ -100,17 +109,17 @@ class _SmoothSortState extends State<SmoothSort>
     _newListSlideLeft = Tween<Offset>(begin: Offset(1, 0), end: Offset.zero)
         .animate(_slideAnimationController);
 
-    _fadeOut =
-        Tween<double>(begin: 0.0, end: 1.0).animate(_listFadeAnimationController);
+    _fadeOut = Tween<double>(begin: 0.0, end: 1.0)
+        .animate(_listFadeAnimationController);
 
     _fadeIn = Tween<double>(begin: 1.0, end: 0.0)
         .animate(_newListFadeAnimationController);
 
-    _positiveScale =
-        Tween<double>(begin: 0.0, end: 1.0).animate(_listScaleAnimationController);
+    _positiveScale = Tween<double>(begin: 0.0, end: 1.0)
+        .animate(_listScaleAnimationController);
 
-    __negativeScale =
-        Tween<double>(begin: 1.0, end: 0.0).animate(_newListScaleAnimationController);
+    __negativeScale = Tween<double>(begin: 1.0, end: 0.0)
+        .animate(_newListScaleAnimationController);
 
     _listPositionRight = _listSlideRight;
     _listPositionLeft = _listSlideLeft;
@@ -154,12 +163,20 @@ class _SmoothSortState extends State<SmoothSort>
                   ..rotateX(pi * _flipX.value),
                 alignment: Alignment.center,
                 child: Container(
-                  margin: EdgeInsets.all(10.0),
-                  height: 150,
+                  margin: (widget.cardMargin != null)
+                      ? widget.cardMargin
+                      : EdgeInsets.all(10.0),
+                  height:
+                      (widget.cardHeight != null) ? widget.cardHeight : 150.0,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                      color: Colors.red),
+                      borderRadius: (widget.cardBorderRadius != null)
+                          ? widget.cardBorderRadius
+                          : BorderRadius.all(Radius.circular(15.0)),
+                      color: widget.cardColor,
+                      gradient: (widget.linearGradient != null)
+                          ? widget.linearGradient
+                          : null),
                   child: ListTile(
                     title: Text(
                       item,
@@ -185,12 +202,20 @@ class _SmoothSortState extends State<SmoothSort>
                   ..rotateY(pi * _flipY.value),
                 alignment: Alignment.center,
                 child: Container(
-                  margin: EdgeInsets.all(10.0),
-                  height: 150,
+                  margin: (widget.cardMargin != null)
+                      ? widget.cardMargin
+                      : EdgeInsets.all(10.0),
+                  height:
+                      (widget.cardHeight != null) ? widget.cardHeight : 150.0,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                      color: Colors.red),
+                      borderRadius: (widget.cardBorderRadius != null)
+                          ? widget.cardBorderRadius
+                          : BorderRadius.all(Radius.circular(15.0)),
+                      color: widget.cardColor,
+                      gradient: (widget.linearGradient != null)
+                          ? widget.linearGradient
+                          : null),
                   child: ListTile(
                     title: Text(
                       item,
@@ -216,12 +241,20 @@ class _SmoothSortState extends State<SmoothSort>
                   ..rotateX(-1 * pi * _flipX.value),
                 alignment: Alignment.center,
                 child: Container(
-                  margin: EdgeInsets.all(10.0),
-                  height: 150,
+                  margin: (widget.cardMargin != null)
+                      ? widget.cardMargin
+                      : EdgeInsets.all(10.0),
+                  height:
+                      (widget.cardHeight != null) ? widget.cardHeight : 150.0,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                      color: Colors.red),
+                      borderRadius: (widget.cardBorderRadius != null)
+                          ? widget.cardBorderRadius
+                          : BorderRadius.all(Radius.circular(15.0)),
+                      color: widget.cardColor,
+                      gradient: (widget.linearGradient != null)
+                          ? widget.linearGradient
+                          : null),
                   child: ListTile(
                     title: Text(
                       item,
@@ -247,12 +280,20 @@ class _SmoothSortState extends State<SmoothSort>
                   ..rotateY(-1 * pi * _flipY.value),
                 alignment: Alignment.center,
                 child: Container(
-                  margin: EdgeInsets.all(10.0),
-                  height: 150,
+                  margin: (widget.cardMargin != null)
+                      ? widget.cardMargin
+                      : EdgeInsets.all(10.0),
+                  height:
+                      (widget.cardHeight != null) ? widget.cardHeight : 150.0,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                      color: Colors.red),
+                      borderRadius: (widget.cardBorderRadius != null)
+                          ? widget.cardBorderRadius
+                          : BorderRadius.all(Radius.circular(15.0)),
+                      color: widget.cardColor,
+                      gradient: (widget.linearGradient != null)
+                          ? widget.linearGradient
+                          : null),
                   child: ListTile(
                     title: Text(
                       item,
@@ -272,12 +313,19 @@ class _SmoothSortState extends State<SmoothSort>
           return SlideTransition(
             position: _listPositionRight,
             child: Container(
-              margin: EdgeInsets.all(10.0),
-              height: 150,
+              margin: (widget.cardMargin != null)
+                  ? widget.cardMargin
+                  : EdgeInsets.all(10.0),
+              height: (widget.cardHeight != null) ? widget.cardHeight : 150.0,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                  color: Colors.red),
+                  borderRadius: (widget.cardBorderRadius != null)
+                      ? widget.cardBorderRadius
+                      : BorderRadius.all(Radius.circular(15.0)),
+                  color: widget.cardColor,
+                  gradient: (widget.linearGradient != null)
+                      ? widget.linearGradient
+                      : null),
               child: ListTile(
                 title: Text(
                   item,
@@ -293,23 +341,29 @@ class _SmoothSortState extends State<SmoothSort>
       case 'textSlideRight':
         {
           return Container(
-            margin: EdgeInsets.all(10.0),
-            height: 150,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                color: Colors.red),
-            child: SlideTransition(
-              position: _listPositionRight,
-              child: ListTile(
-                title: Text(
-                  item,
-                  style: TextStyle(fontSize: 20),
-                  textAlign: TextAlign.center,
+              margin: (widget.cardMargin != null)
+                  ? widget.cardMargin
+                  : EdgeInsets.all(10.0),
+              height: (widget.cardHeight != null) ? widget.cardHeight : 150.0,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  borderRadius: (widget.cardBorderRadius != null)
+                      ? widget.cardBorderRadius
+                      : BorderRadius.all(Radius.circular(15.0)),
+                  color: widget.cardColor,
+                  gradient: (widget.linearGradient != null)
+                      ? widget.linearGradient
+                      : null),
+              child: SlideTransition(
+                position: _listPositionRight,
+                child: ListTile(
+                  title: Text(
+                    item,
+                    style: TextStyle(fontSize: 20),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-              ),
-            )
-          );
+              ));
         }
         break;
 
@@ -318,12 +372,19 @@ class _SmoothSortState extends State<SmoothSort>
           return SlideTransition(
             position: _listPositionLeft,
             child: Container(
-              margin: EdgeInsets.all(10.0),
-              height: 150,
+              margin: (widget.cardMargin != null)
+                  ? widget.cardMargin
+                  : EdgeInsets.all(10.0),
+              height: (widget.cardHeight != null) ? widget.cardHeight : 150.0,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                  color: Colors.red),
+                  borderRadius: (widget.cardBorderRadius != null)
+                      ? widget.cardBorderRadius
+                      : BorderRadius.all(Radius.circular(15.0)),
+                  color: widget.cardColor,
+                  gradient: (widget.linearGradient != null)
+                      ? widget.linearGradient
+                      : null),
               child: ListTile(
                 title: Text(
                   item,
@@ -339,23 +400,29 @@ class _SmoothSortState extends State<SmoothSort>
       case 'textSlideLeft':
         {
           return Container(
-            margin: EdgeInsets.all(10.0),
-            height: 150,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                color: Colors.red),
-            child: SlideTransition(
-              position: _listPositionLeft,
-              child: ListTile(
-                title: Text(
-                  item,
-                  style: TextStyle(fontSize: 20),
-                  textAlign: TextAlign.center,
+              margin: (widget.cardMargin != null)
+                  ? widget.cardMargin
+                  : EdgeInsets.all(10.0),
+              height: (widget.cardHeight != null) ? widget.cardHeight : 150.0,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  borderRadius: (widget.cardBorderRadius != null)
+                      ? widget.cardBorderRadius
+                      : BorderRadius.all(Radius.circular(15.0)),
+                  color: widget.cardColor,
+                  gradient: (widget.linearGradient != null)
+                      ? widget.linearGradient
+                      : null),
+              child: SlideTransition(
+                position: _listPositionLeft,
+                child: ListTile(
+                  title: Text(
+                    item,
+                    style: TextStyle(fontSize: 20),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-              ),
-            )
-          );
+              ));
         }
         break;
 
@@ -364,12 +431,19 @@ class _SmoothSortState extends State<SmoothSort>
           return FadeTransition(
             opacity: _listFadeValue,
             child: Container(
-              margin: EdgeInsets.all(10.0),
-              height: 150,
+              margin: (widget.cardMargin != null)
+                  ? widget.cardMargin
+                  : EdgeInsets.all(10.0),
+              height: (widget.cardHeight != null) ? widget.cardHeight : 150.0,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                  color: Colors.red),
+                  borderRadius: (widget.cardBorderRadius != null)
+                      ? widget.cardBorderRadius
+                      : BorderRadius.all(Radius.circular(15.0)),
+                  color: widget.cardColor,
+                  gradient: (widget.linearGradient != null)
+                      ? widget.linearGradient
+                      : null),
               child: ListTile(
                 title: Text(
                   item,
@@ -385,12 +459,19 @@ class _SmoothSortState extends State<SmoothSort>
       case 'textFade':
         {
           return Container(
-              margin: EdgeInsets.all(10.0),
-              height: 150,
+              margin: (widget.cardMargin != null)
+                  ? widget.cardMargin
+                  : EdgeInsets.all(10.0),
+              height: (widget.cardHeight != null) ? widget.cardHeight : 150.0,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                  color: Colors.red),
+                  borderRadius: (widget.cardBorderRadius != null)
+                      ? widget.cardBorderRadius
+                      : BorderRadius.all(Radius.circular(15.0)),
+                  color: widget.cardColor,
+                  gradient: (widget.linearGradient != null)
+                      ? widget.linearGradient
+                      : null),
               child: FadeTransition(
                 opacity: _listFadeValue,
                 child: ListTile(
@@ -410,13 +491,19 @@ class _SmoothSortState extends State<SmoothSort>
             scale: _listScaleValue,
             alignment: Alignment.center,
             child: Container(
-              margin: EdgeInsets.all(10.0),
-              height: 150,
+              margin: (widget.cardMargin != null)
+                  ? widget.cardMargin
+                  : EdgeInsets.all(10.0),
+              height: (widget.cardHeight != null) ? widget.cardHeight : 150.0,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                  color: Colors.red
-              ),
+                  borderRadius: (widget.cardBorderRadius != null)
+                      ? widget.cardBorderRadius
+                      : BorderRadius.all(Radius.circular(15.0)),
+                  color: widget.cardColor,
+                  gradient: (widget.linearGradient != null)
+                      ? widget.linearGradient
+                      : null),
               child: ListTile(
                 title: Text(
                   item,
@@ -432,24 +519,29 @@ class _SmoothSortState extends State<SmoothSort>
       case 'textScale':
         {
           return Container(
-            margin: EdgeInsets.all(10.0),
-            height: 150,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                color: Colors.red
-            ),
-            child: ScaleTransition(
-              scale: _listScaleValue,
-              child: ListTile(
-                title: Text(
-                  item,
-                  style: TextStyle(fontSize: 20),
-                  textAlign: TextAlign.center,
+              margin: (widget.cardMargin != null)
+                  ? widget.cardMargin
+                  : EdgeInsets.all(10.0),
+              height: (widget.cardHeight != null) ? widget.cardHeight : 150.0,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  borderRadius: (widget.cardBorderRadius != null)
+                      ? widget.cardBorderRadius
+                      : BorderRadius.all(Radius.circular(15.0)),
+                  color: widget.cardColor,
+                  gradient: (widget.linearGradient != null)
+                      ? widget.linearGradient
+                      : null),
+              child: ScaleTransition(
+                scale: _listScaleValue,
+                child: ListTile(
+                  title: Text(
+                    item,
+                    style: TextStyle(fontSize: 20),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-              ),
-            )
-          );
+              ));
         }
         break;
 
