@@ -25,7 +25,6 @@ class BodyWidget extends StatefulWidget {
 }
 
 class BodyWidgetState extends State<BodyWidget> with TickerProviderStateMixin {
-
   List<String> _data = [
     'Horse',
     'Cow',
@@ -48,20 +47,17 @@ class BodyWidgetState extends State<BodyWidget> with TickerProviderStateMixin {
     super.initState();
 
     smoothSort = SmoothSort(
-      listType: 'list',
-      data: _data,
-      animationType: 'textFade',
-      cardColor: Colors.green,
-      linearGradient: LinearGradient(
-          colors: [Colors.yellow[700], Colors.redAccent],
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-          tileMode: TileMode.clamp
-      ),
-      cardBorderRadius: BorderRadius.all(Radius.circular(35.0)),
-      cardMargin: EdgeInsets.all(20.0),
-      cardHeight: 100.0,
-    );
+        listType: 'list',
+        data: _data,
+        animationType: 'reverseFlipHorizontally',
+        cardColor: Colors.green,
+        linearGradient: LinearGradient(
+            colors: [Colors.yellow[700], Colors.redAccent],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            tileMode: TileMode.clamp),
+        cardBorderRadius: BorderRadius.all(Radius.circular(35.0)),
+        cardMargin: EdgeInsets.all(10.0));
 
     shadowColor = Colors.red;
   }
@@ -83,5 +79,4 @@ class BodyWidgetState extends State<BodyWidget> with TickerProviderStateMixin {
       ),
     );
   }
-
 }

@@ -79,7 +79,7 @@ class _SmoothSortState extends State<SmoothSort>
         vsync: this, duration: Duration(milliseconds: 1000), value: 1);
 
     _slideAnimationController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 500), value: 1);
+        vsync: this, duration: Duration(milliseconds: 1000), value: 1);
 
     _listFadeAnimationController = AnimationController(
         vsync: this, duration: Duration(milliseconds: 1000), value: 1);
@@ -312,7 +312,7 @@ class _SmoothSortState extends State<SmoothSort>
                   child: ListTile(
                     title: Text(
                       item,
-                      style: TextStyle(fontSize: 20),
+                      style: TextStyle(fontSize: 50),
                       textAlign: TextAlign.center,
                     ),
                   ),
