@@ -27,16 +27,19 @@
 <tr>
 <td>
 <div align="center">Card Slide Right</div>
+<div align="center">animationType: cardSlideRight</div>
 <br>
 <img src="https://raw.githubusercontent.com/mdg-soc-19/smooth-sort/master/smoothSortScreenshots/cardSlideRight.gif" height = "400px"/>  
 </td>
 <td>
-<div align="center">Card Flip Vertcially</div>
+<div align="center">Card Flip Vertically</div>
+<div align="center">animationType: flipVertically</div>
 <br>
 <img src="https://raw.githubusercontent.com/mdg-soc-19/smooth-sort/master/smoothSortScreenshots/flipVertically.gif" height = "400px"/>  
 </td>
 <td>
 <div align="center">Card Scale</div>
+<div align="center">animationType: cardScale</div>
 <br>
 <img src="https://raw.githubusercontent.com/mdg-soc-19/smooth-sort/master/smoothSortScreenshots/cardScale.gif" height = "400px"/>  
 </td>
@@ -44,16 +47,19 @@
 <tr>
 <td>
 <div align="center">Card Slide Left</div>
+<div align="center">animationType: cardSlideLeft</div>
 <br>
 <img src="https://raw.githubusercontent.com/mdg-soc-19/smooth-sort/master/smoothSortScreenshots/cardSlideLeft.gif" height = "400px"/>  
 </td>
 <td>
 <div align="center">Card Flip Horizontally</div>
+<div align="center">animationType: flipHorizontally</div>
 <br>
 <img src="https://raw.githubusercontent.com/mdg-soc-19/smooth-sort/master/smoothSortScreenshots/flipHorizontally.gif" height = "400px"/>  
 </td>
 <td>
 <div align="center">Card Fade</div>
+<div align="center">animationType: cardFade</div>
 <br>
 <img src="https://raw.githubusercontent.com/mdg-soc-19/smooth-sort/master/smoothSortScreenshots/cardFade.gif" height = "400px"/>  
 </td>
@@ -61,16 +67,19 @@
 <tr>
 <td>
 <div align="center">Text Slide Right</div>
+<div align="center">animationType: textSlideRight</div>
 <br>
 <img src="https://raw.githubusercontent.com/mdg-soc-19/smooth-sort/master/smoothSortScreenshots/textSlideRight.gif" height = "400px"/>  
 </td>
 <td>
 <div align="center">Text Fade</div>
+<div align="center">animationType: textFade</div>
 <br>
 <img src="https://raw.githubusercontent.com/mdg-soc-19/smooth-sort/master/smoothSortScreenshots/textFade.gif" height = "400px"/>  
 </td>
 <td>
 <div align="center">Text Scale</div>
+<div align="center">animationType: textScale</div>
 <br>
 <img src="https://raw.githubusercontent.com/mdg-soc-19/smooth-sort/master/smoothSortScreenshots/textScale.gif" height = "400px"/>  
 </td>
@@ -78,16 +87,19 @@
 <tr>
 <td>
 <div align="center">Text Slide Left</div>
+<div align="center">animationType: textSlideLeft</div>
 <br>
 <img src="https://raw.githubusercontent.com/mdg-soc-19/smooth-sort/master/smoothSortScreenshots/textSlideLeft.gif" height = "400px"/>  
 </td>
 <td>
-<div align="center">Reverse Card Flip Vertcially</div>
+<div align="center">Reverse Card Flip Vertically</div>
+<div align="center">animationType: reverseFlipVertically</div>
 <br>
 <img src="https://raw.githubusercontent.com/mdg-soc-19/smooth-sort/master/smoothSortScreenshots/reverseFlipVertically.gif" height = "400px"/>  
 </td>
 <td>
 <div align="center">Reverse Card Flip Horizontally</div>
+<div align="center">animationType: reverseFlipHorizontally</div>
 <br>
 <img src="https://raw.githubusercontent.com/mdg-soc-19/smooth-sort/master/smoothSortScreenshots/reverseFlipHorizontally.gif" height = "400px"/>  
 </td>
