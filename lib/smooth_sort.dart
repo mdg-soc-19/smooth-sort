@@ -4,21 +4,53 @@ import 'package:flutter/material.dart';
 
 import 'dart:math';
 
+/// The duration for the vertically flip animation
 const _flipVerticallyDuration = Duration(milliseconds: 1000);
+
+/// The duration for the horizontally flip animation
 const _flipHorizontallyDuration = Duration(milliseconds: 1000);
+
+/// The duration for the slide animation
 const _slideDuration = Duration(milliseconds: 1000);
+
+/// The duration for the fade animation
 const _fadeDuration = Duration(milliseconds: 1000);
+
+/// The duration for the scale animation
 const _scaleDuration = Duration(milliseconds: 1000);
 
 class SmoothSort extends StatefulWidget {
+  /// The string for selecting the type of the list i.e. list or grid
+  ///
+  /// default to list
   final String listType;
+
+  /// The string for selecting the type of the animation
+  ///
+  /// default to flipVertically
   final String animationType;
+
+  /// The list of string which is to be sorted.
   final List<String> data;
+
+  /// Specifies the color of the card
+  ///
+  /// default to Colors.red
   final Color cardColor;
+
+  /// Describes the smooth Transition color for the card
   final LinearGradient linearGradient;
+
+  /// Specifies the border radius for the card
   final BorderRadius cardBorderRadius;
+
+  /// Provides the margin for the card
   final EdgeInsets cardMargin;
+
+  /// Specifies the height for the card
   final double cardHeight;
+
+  /// Specifies the width for the card
   final double cardWidth;
 
   SmoothSort(
@@ -45,27 +77,42 @@ class SmoothSort extends StatefulWidget {
 
 class _SmoothSortState extends State<SmoothSort>
     with TickerProviderStateMixin<SmoothSort> {
+  /// GlobalKey for the list
   GlobalKey<AnimatedListState> _listkey;
 
+  /// AnimationController for the flipVertically animation
   AnimationController _flipVerticallyAnimationController;
+
+  /// AnimationController for the flipHorizontally animation
   AnimationController _flipHorizontallyAnimationController;
 
+  /// AnimationController for the slide animation
   AnimationController _slideAnimationController;
 
+  /// AnimationController for the fade animation
   AnimationController _listFadeAnimationController,
       _newListFadeAnimationController;
 
+  /// AnimationController for the scale animation
   AnimationController _listScaleAnimationController,
       _newListScaleAnimationController;
 
+  /// Tween object for vertical flip animation
   Animation<double> _flipX;
+
+  /// Tween object for horizontal flip animation
   Animation<double> _flipY;
 
+  /// Tween object for slideRight animation
   Animation<Offset> _listSlideRight, _newListSlideRight, _listPositionRight;
+
+  /// Tween object for slideLeft animation
   Animation<Offset> _listSlideLeft, _newListSlideLeft, _listPositionLeft;
 
+  /// Tween object for fade animation
   Animation<double> _fadeIn, _fadeOut, _listFadeValue;
 
+  /// Tween object for scale animation
   Animation<double> _positiveScale, __negativeScale, _listScaleValue;
 
   List<String> _data;
@@ -161,6 +208,7 @@ class _SmoothSortState extends State<SmoothSort>
 
   Widget buildListItem(String item, Animation animation, int index) {
     switch (widget.animationType) {
+      // Widget for the vertically flipping animation
       case 'flipVertically':
         {
           return AnimatedBuilder(
@@ -203,6 +251,7 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      // Widget for the horizontally flipping animation
       case 'flipHorizontally':
         {
           return AnimatedBuilder(
@@ -245,6 +294,7 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      // Widget for the reverse vertically flipping animation
       case 'reverseFlipVertically':
         {
           return AnimatedBuilder(
@@ -287,6 +337,7 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      // Widget for the reverse horizontally flipping animation
       case 'reverseFlipHorizontally':
         {
           return AnimatedBuilder(
@@ -329,6 +380,7 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      // Widget for the card right slide animation
       case 'cardSlideRight':
         {
           return SlideTransition(
@@ -362,6 +414,7 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      // Widget for the text right slide animation
       case 'textSlideRight':
         {
           return Container(
@@ -394,6 +447,7 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      // Widget for the card left slide animation
       case 'cardSlideLeft':
         {
           return SlideTransition(
@@ -427,6 +481,7 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      // Widget for the text left slide animation
       case 'textSlideLeft':
         {
           return Container(
@@ -459,6 +514,7 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      // Widget for the fading card animation
       case 'cardFade':
         {
           return FadeTransition(
@@ -492,6 +548,7 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      // Widget for the fading text animation
       case 'textFade':
         {
           return Container(
@@ -522,6 +579,7 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      // Widget for the card scaling animation
       case 'cardScale':
         {
           return ScaleTransition(
@@ -556,6 +614,7 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      // Widget for the text scaling animation
       case 'textScale':
         {
           return Container(
@@ -601,6 +660,7 @@ class _SmoothSortState extends State<SmoothSort>
 
   void sortList() async {
     switch (widget.animationType) {
+      // Implementation of sorting animation for vertically flipping animation
       case 'flipVertically':
         {
           await _flipVerticallyAnimationController.reverse();
@@ -613,6 +673,7 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      // Implementation of sorting animation for horizontally flipping animation
       case 'flipHorizontally':
         {
           await _flipHorizontallyAnimationController.reverse();
@@ -625,6 +686,7 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      // Implementation of sorting animation for reverse vertically flipping animation
       case 'reverseFlipVertically':
         {
           await _flipVerticallyAnimationController.reverse();
@@ -637,6 +699,7 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      // Implementation of sorting animation for reverse horizontally flipping animation
       case 'reverseFlipHorizontally':
         {
           await _flipHorizontallyAnimationController.reverse();
@@ -649,6 +712,7 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      // Implementation of sorting animation for card right slide animation
       case 'cardSlideRight':
         {
           await _slideAnimationController.reverse();
@@ -662,6 +726,7 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      // Implementation of sorting animation for text right slide animation
       case 'textSlideRight':
         {
           await _slideAnimationController.reverse();
@@ -675,6 +740,7 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      // Implementation of sorting animation for card left slide animation
       case 'cardSlideLeft':
         {
           await _slideAnimationController.reverse();
@@ -688,6 +754,7 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      // Implementation of sorting animation for text left slide animation
       case 'textSlideLeft':
         {
           await _slideAnimationController.reverse();
@@ -701,6 +768,7 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      // Implementation of sorting animation for card fading animation
       case 'cardFade':
         {
           await _listFadeAnimationController.reverse();
@@ -714,6 +782,7 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      // Implementation of sorting animation for text fading animation
       case 'textFade':
         {
           await _listFadeAnimationController.reverse();
@@ -727,6 +796,7 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      // Implementation of sorting animation for card scaling animation
       case 'cardScale':
         {
           await _listScaleAnimationController.reverse();
@@ -740,6 +810,7 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      // Implementation of sorting animation for text scaling animation
       case 'textScale':
         {
           await _listScaleAnimationController.reverse();
