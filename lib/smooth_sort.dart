@@ -13,17 +13,19 @@ class SmoothSort extends StatefulWidget {
   final BorderRadius cardBorderRadius;
   final EdgeInsets cardMargin;
   final double cardHeight;
+  final double cardWidth;
 
   SmoothSort(
       {Key key,
       this.listType = 'list',
+      @required this.data,
       this.animationType = 'flipVertically',
       this.cardColor = Colors.red,
       this.linearGradient,
       this.cardBorderRadius,
       this.cardMargin,
       this.cardHeight,
-      @required this.data});
+      this.cardWidth});
 
   final _SmoothSortState __smoothSortState = _SmoothSortState();
 
@@ -131,6 +133,7 @@ class _SmoothSortState extends State<SmoothSort>
   Widget build(BuildContext context) {
     return SizedBox(
       height: 520,
+      width: MediaQuery.of(context).size.width,
       child: (widget.listType == 'list')
           ? AnimatedList(
               key: _listkey,
@@ -168,6 +171,9 @@ class _SmoothSortState extends State<SmoothSort>
                       : EdgeInsets.all(10.0),
                   height:
                       (widget.cardHeight != null) ? widget.cardHeight : 150.0,
+                  width: (widget.cardWidth != null)
+                      ? widget.cardWidth
+                      : MediaQuery.of(context).size.width,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                       borderRadius: (widget.cardBorderRadius != null)
@@ -207,6 +213,9 @@ class _SmoothSortState extends State<SmoothSort>
                       : EdgeInsets.all(10.0),
                   height:
                       (widget.cardHeight != null) ? widget.cardHeight : 150.0,
+                  width: (widget.cardWidth != null)
+                      ? widget.cardWidth
+                      : MediaQuery.of(context).size.width,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                       borderRadius: (widget.cardBorderRadius != null)
@@ -246,6 +255,9 @@ class _SmoothSortState extends State<SmoothSort>
                       : EdgeInsets.all(10.0),
                   height:
                       (widget.cardHeight != null) ? widget.cardHeight : 150.0,
+                  width: (widget.cardWidth != null)
+                      ? widget.cardWidth
+                      : MediaQuery.of(context).size.width,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                       borderRadius: (widget.cardBorderRadius != null)
@@ -285,6 +297,9 @@ class _SmoothSortState extends State<SmoothSort>
                       : EdgeInsets.all(10.0),
                   height:
                       (widget.cardHeight != null) ? widget.cardHeight : 150.0,
+                  width: (widget.cardWidth != null)
+                      ? widget.cardWidth
+                      : MediaQuery.of(context).size.width,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                       borderRadius: (widget.cardBorderRadius != null)
@@ -317,6 +332,9 @@ class _SmoothSortState extends State<SmoothSort>
                   ? widget.cardMargin
                   : EdgeInsets.all(10.0),
               height: (widget.cardHeight != null) ? widget.cardHeight : 150.0,
+              width: (widget.cardWidth != null)
+                  ? widget.cardWidth
+                  : MediaQuery.of(context).size.width,
               alignment: Alignment.center,
               decoration: BoxDecoration(
                   borderRadius: (widget.cardBorderRadius != null)
@@ -345,6 +363,9 @@ class _SmoothSortState extends State<SmoothSort>
                   ? widget.cardMargin
                   : EdgeInsets.all(10.0),
               height: (widget.cardHeight != null) ? widget.cardHeight : 150.0,
+              width: (widget.cardWidth != null)
+                  ? widget.cardWidth
+                  : MediaQuery.of(context).size.width,
               alignment: Alignment.center,
               decoration: BoxDecoration(
                   borderRadius: (widget.cardBorderRadius != null)
@@ -376,6 +397,9 @@ class _SmoothSortState extends State<SmoothSort>
                   ? widget.cardMargin
                   : EdgeInsets.all(10.0),
               height: (widget.cardHeight != null) ? widget.cardHeight : 150.0,
+              width: (widget.cardWidth != null)
+                  ? widget.cardWidth
+                  : MediaQuery.of(context).size.width,
               alignment: Alignment.center,
               decoration: BoxDecoration(
                   borderRadius: (widget.cardBorderRadius != null)
@@ -404,6 +428,9 @@ class _SmoothSortState extends State<SmoothSort>
                   ? widget.cardMargin
                   : EdgeInsets.all(10.0),
               height: (widget.cardHeight != null) ? widget.cardHeight : 150.0,
+              width: (widget.cardWidth != null)
+                  ? widget.cardWidth
+                  : MediaQuery.of(context).size.width,
               alignment: Alignment.center,
               decoration: BoxDecoration(
                   borderRadius: (widget.cardBorderRadius != null)
@@ -435,6 +462,9 @@ class _SmoothSortState extends State<SmoothSort>
                   ? widget.cardMargin
                   : EdgeInsets.all(10.0),
               height: (widget.cardHeight != null) ? widget.cardHeight : 150.0,
+              width: (widget.cardWidth != null)
+                  ? widget.cardWidth
+                  : MediaQuery.of(context).size.width,
               alignment: Alignment.center,
               decoration: BoxDecoration(
                   borderRadius: (widget.cardBorderRadius != null)
@@ -463,6 +493,7 @@ class _SmoothSortState extends State<SmoothSort>
                   ? widget.cardMargin
                   : EdgeInsets.all(10.0),
               height: (widget.cardHeight != null) ? widget.cardHeight : 150.0,
+              width: 50,
               alignment: Alignment.center,
               decoration: BoxDecoration(
                   borderRadius: (widget.cardBorderRadius != null)
@@ -495,6 +526,9 @@ class _SmoothSortState extends State<SmoothSort>
                   ? widget.cardMargin
                   : EdgeInsets.all(10.0),
               height: (widget.cardHeight != null) ? widget.cardHeight : 150.0,
+              width: (widget.cardWidth != null)
+                  ? widget.cardWidth
+                  : MediaQuery.of(context).size.width,
               alignment: Alignment.center,
               decoration: BoxDecoration(
                   borderRadius: (widget.cardBorderRadius != null)
@@ -523,6 +557,9 @@ class _SmoothSortState extends State<SmoothSort>
                   ? widget.cardMargin
                   : EdgeInsets.all(10.0),
               height: (widget.cardHeight != null) ? widget.cardHeight : 150.0,
+              width: (widget.cardWidth != null)
+                  ? widget.cardWidth
+                  : MediaQuery.of(context).size.width,
               alignment: Alignment.center,
               decoration: BoxDecoration(
                   borderRadius: (widget.cardBorderRadius != null)
