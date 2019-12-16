@@ -36,7 +36,7 @@ class _SmoothSortState extends State<SmoothSort>
 
   AnimationController _listFadeAnimationController, _newListFadeAnimationController;
 
-  AnimationController _scaleAnimationController;
+  AnimationController _listScaleAnimationController, _newListScaleAnimationController;
 
   Animation<double> _flipX;
   Animation<double> _flipY;
@@ -73,8 +73,14 @@ class _SmoothSortState extends State<SmoothSort>
     _newListFadeAnimationController = AnimationController(
         vsync: this, duration: Duration(milliseconds: 1000), value: 1);
 
-    _scaleAnimationController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 500), value: 1);
+    _listScaleAnimationController = AnimationController(
+        vsync: this, duration: Duration(milliseconds: 1000), value: 1);
+
+    _newListScaleAnimationController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 1000),
+      value: 1
+    );
 
     _flipX =
         Tween<double>(begin: -0.5, end: 0).animate(_flipXAnimationController);
@@ -101,10 +107,10 @@ class _SmoothSortState extends State<SmoothSort>
         .animate(_newListFadeAnimationController);
 
     _positiveScale =
-        Tween<double>(begin: 0.0, end: 1.0).animate(_scaleAnimationController);
+        Tween<double>(begin: 0.0, end: 1.0).animate(_listScaleAnimationController);
 
     __negativeScale =
-        Tween<double>(begin: 1.0, end: 0.0).animate(_scaleAnimationController);
+        Tween<double>(begin: 1.0, end: 0.0).animate(_newListScaleAnimationController);
 
     _listPositionRight = _listSlideRight;
     _listPositionLeft = _listSlideLeft;
@@ -486,6 +492,19 @@ class _SmoothSortState extends State<SmoothSort>
           });
 
           await _newListFadeAnimationController.reverse();
+        }
+        break;
+
+      case 'cardScale':
+        {
+          await _listScaleAnimationController.reverse();
+
+          setState(() {
+            _data.sort();
+            _listScaleValue = __negativeScale;
+          });
+
+          await _newListScaleAnimationController.reverse();
         }
         break;
 
