@@ -1,4 +1,5 @@
 
+
 # <div align="center">Smooth Sort</div>
 
 <div align="center">  
@@ -175,13 +176,9 @@ For more info, please refer to the  `main.dart`  in example.
 | :------------------------------------ | :-------------------------- | :----------------------------------------------------------- | :-------------------: |
 | listType                                 | String                  | Specifies the type of list i.e. list/grid.               |       list       |
 | animationType                             | String             | Specifies the type of animation required to sort the list/grid. |       flipVertically       |
-| data                                | List&lt;String&gt;                      | The list of string which is to be sorted. |         @required         |
-| cardColor                           | Color                      | Specifies the color of the Card in the list/grid. |          Colors.red          |
-| linearGradient            | LinearGradient                        | Smooth Transition color for the card.             |         null          |
-| cardBorderRadius                                 | BorderRadius                       | Specifies the border radius for the card.                   | BorderRadius.all(Radius.circular(15.0)) |
-| cardMargin                       | EdgeInsets                       | Provides the margin for the card.                   | EdgeInsets.all(10.0) |
-| cardHeight                 | double | Specifies the height for the card. |         150.0          |
-| cardWidth                      | double            | Specifies the width for the card.                             |         Width of the screen          |
+| itemList                                | List&lt;Widget&gt;                      | The list of widgets which is to be sorted. |         @required         |
+| itemIdList                           | List&lt;int&gt;                      | This list contains the ids for the corresponding widgets needed for the sorting of widgets. |          @required          |
+| gridCrossAxisCount            | int                        | The number of grids in a single row in GridView.             |         2          |
 
 For help on editing package code, view the [flutter documentation](https://flutter.io/developing-packages/).
 
