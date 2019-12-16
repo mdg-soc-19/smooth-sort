@@ -34,7 +34,7 @@ class _SmoothSortState extends State<SmoothSort>
 
   AnimationController _slideAnimationController;
 
-  AnimationController _fadeAnimationController;
+  AnimationController _listFadeAnimationController, _newListFadeAnimationController;
 
   AnimationController _scaleAnimationController;
 
@@ -67,7 +67,10 @@ class _SmoothSortState extends State<SmoothSort>
     _slideAnimationController = AnimationController(
         vsync: this, duration: Duration(milliseconds: 1000), value: 1);
 
-    _fadeAnimationController = AnimationController(
+    _listFadeAnimationController = AnimationController(
+        vsync: this, duration: Duration(milliseconds: 1000), value: 1);
+
+    _newListFadeAnimationController = AnimationController(
         vsync: this, duration: Duration(milliseconds: 1000), value: 1);
 
     _scaleAnimationController = AnimationController(
@@ -92,10 +95,10 @@ class _SmoothSortState extends State<SmoothSort>
         .animate(_slideAnimationController);
 
     _fadeOut =
-        Tween<double>(begin: 0.0, end: 1.0).animate(_fadeAnimationController);
+        Tween<double>(begin: 0.0, end: 1.0).animate(_listFadeAnimationController);
 
-    _fadeIn =
-        Tween<double>(begin: 1.0, end: 0.0).animate(_fadeAnimationController);
+    _fadeIn = Tween<double>(begin: 1.0, end: 0.0)
+        .animate(_newListFadeAnimationController);
 
     _positiveScale =
         Tween<double>(begin: 0.0, end: 1.0).animate(_scaleAnimationController);
@@ -201,7 +204,7 @@ class _SmoothSortState extends State<SmoothSort>
           return AnimatedBuilder(
             animation: _flipX,
             builder: (BuildContext context, Widget child) {
-              return   Transform(
+              return Transform(
                 transform: Matrix4.identity()
                   ..setEntry(3, 2, 0.0002)
                   ..rotateX(-1 * pi * _flipX.value),
@@ -212,8 +215,7 @@ class _SmoothSortState extends State<SmoothSort>
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                    color: Colors.red
-                  ),
+                      color: Colors.red),
                   child: ListTile(
                     title: Text(
                       item,
@@ -244,8 +246,7 @@ class _SmoothSortState extends State<SmoothSort>
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                      color: Colors.red
-                  ),
+                      color: Colors.red),
                   child: ListTile(
                     title: Text(
                       item,
@@ -270,8 +271,7 @@ class _SmoothSortState extends State<SmoothSort>
               alignment: Alignment.center,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                  color: Colors.red
-              ),
+                  color: Colors.red),
               child: ListTile(
                 title: Text(
                   item,
@@ -294,8 +294,7 @@ class _SmoothSortState extends State<SmoothSort>
               alignment: Alignment.center,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                  color: Colors.red
-              ),
+                  color: Colors.red),
               child: ListTile(
                 title: Text(
                   item,
@@ -328,6 +327,28 @@ class _SmoothSortState extends State<SmoothSort>
               ),
             ),
           );
+        }
+        break;
+
+      case 'textFade':
+        {
+          return Container(
+              margin: EdgeInsets.all(10.0),
+              height: 150,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                  color: Colors.red),
+              child: FadeTransition(
+                opacity: _listFadeValue,
+                child: ListTile(
+                  title: Text(
+                    item,
+                    style: TextStyle(fontSize: 20),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ));
         }
         break;
 
@@ -401,7 +422,6 @@ class _SmoothSortState extends State<SmoothSort>
             _listPositionRight = _newListSlideRight;
           });
 
-          _slideAnimationController.reset();
           await _slideAnimationController.forward();
         }
         break;
@@ -415,22 +435,20 @@ class _SmoothSortState extends State<SmoothSort>
             _listPositionLeft = _newListSlideLeft;
           });
 
-          _slideAnimationController.reset();
           await _slideAnimationController.forward();
         }
         break;
 
       case 'cardFade':
         {
-          await _fadeAnimationController.reverse();
+          await _listFadeAnimationController.reverse();
 
           setState(() {
             _data.sort();
             _listFadeValue = _fadeIn;
           });
 
-          _fadeAnimationController.reset();
-          await _fadeAnimationController.reverse();
+          await _newListFadeAnimationController.reverse();
         }
         break;
 

@@ -61,7 +61,7 @@ class BodyWidgetState extends State<BodyWidget> with TickerProviderStateMixin {
 
     smoothSort = SmoothSort(
       data: ['Horse', 'Cow', 'Camel', 'Sheep', 'Goat', 'Help', 'Guide', 'Hello', 'Ihdid'],
-      animationType: 'cardFade'
+      animationType: 'textFade'
     );
 
     animationController = AnimationController(
