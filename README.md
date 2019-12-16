@@ -136,7 +136,7 @@ For more info, please refer to the  `main.dart`  in example.
 | listType                                 | String                  | Specifies the type of list i.e. list/grid.               |       list       |
 | animationType                             | String             | Specifies the type of animation required to sort the list/grid. |       flipVertically       |
 | data                                | List&lt;String&gt;                      | The list of string which is to be sorted. |         @required         |
-| cardColor                           | Color                      | Specifies the color of the Card in the list/grid. |          red          |
+| cardColor                           | Color                      | Specifies the color of the Card in the list/grid. |          Colors.red          |
 | linearGradient            | LinearGradient                        | Smooth Transition color for the card.             |         null          |
 | cardBorderRadius                                 | BorderRadius                       | Specifies the border radius for the card.                   | BorderRadius.all(Radius.circular(15.0)) |
 | cardMargin                       | EdgeInsets                       | Provides the margin for the card.                   | EdgeInsets.all(10.0) |
