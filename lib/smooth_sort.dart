@@ -452,6 +452,19 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      case 'textFade':
+        {
+          await _listFadeAnimationController.reverse();
+
+          setState(() {
+            _data.sort();
+            _listFadeValue = _fadeIn;
+          });
+
+          await _newListFadeAnimationController.reverse();
+        }
+        break;
+
       default:
         {}
     }
