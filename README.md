@@ -1,3 +1,5 @@
+
+
 # <div align="center">Smooth Sort</div>
 
 <div align="center">  
@@ -108,24 +110,41 @@
 </div>
 
 # Usage
-For adding the SmoothSort in your Flutter app, you have to simply provide the options for ListView or GridView with the input list of strings. Also you can select the animationType, cardColor, linearGradient for card, borderRadius etc.
+For adding the SmoothSort in your Flutter app, you have to simply provide the options for ListView or GridView with the list of the widgets to be displayed in the list/grid with the another list of their corresponding itemIds.
 
 For example:
 First create the object for SmoothSort 
 ```dart
 SmoothSort smoothSort = SmoothSort(
-	listType: 'list',	// specify the listType i.e. list or grid
-	data: _data,	// list of strings
-	animationType: 'reverseFlipHorizontally',	// specify the type of animation you want
-	cardColor: Colors.green,	// give the color to the card if you want
-	linearGradient: LinearGradient(  
-		    colors: [Colors.yellow[700], Colors.redAccent],  
-			begin: Alignment.centerLeft,  
-			end: Alignment.centerRight,  
-			tileMode: TileMode.clamp
-		),	// give the changing color to the card 
-	cardBorderRadius: BorderRadius.all(Radius.circular(35.0)),	// border radius for the card
-	cardMargin: EdgeInsets.all(10.0)	// margin for the card
+	listType: 'list',	 // specify the listType i.e. list or grid
+	itemList: [  
+	  Container(  
+	    color: Colors.red,  
+	    alignment: Alignment.center,  
+		child: Text(  
+		    "A",  
+	        style: TextStyle(fontSize: 150.0),  
+		    ),  
+	  ),  
+	  Container(  
+	    color: Colors.blueAccent,  
+	    alignment: Alignment.center,  
+	    child: Text(  
+		    "B",  
+	        style: TextStyle(fontSize: 150.0),  
+			),  
+	  ),  
+	  Container(  
+	    color: Colors.yellowAccent,  
+	    alignment: Alignment.center,  
+	    child: Text(  
+		    "C",  
+	        style: TextStyle(fontSize: 150.0),  
+			),  
+	  ),   
+	],					// specify the list of widgets for the ListView/GridView
+	itemIdList: [1, 2, 0],		// specify the corresponding ids for widgets	
+	animationType: 'cardScale'	// specify the type of animation you want
 );
 ```
 
@@ -143,7 +162,7 @@ After this, just call the `smoothSort.onPress()` method to start the animation f
 RaisedButton(  
   child: Text("Sort"),  
   onPressed: () {  
-    smoothSort.onPress();  
+    smoothSort.onPress();	// just call the onPress method
   },  
 )
 ```
@@ -157,13 +176,9 @@ For more info, please refer to the  `main.dart`  in example.
 | :------------------------------------ | :-------------------------- | :----------------------------------------------------------- | :-------------------: |
 | listType                                 | String                  | Specifies the type of list i.e. list/grid.               |       list       |
 | animationType                             | String             | Specifies the type of animation required to sort the list/grid. |       flipVertically       |
-| data                                | List&lt;String&gt;                      | The list of string which is to be sorted. |         @required         |
-| cardColor                           | Color                      | Specifies the color of the Card in the list/grid. |          Colors.red          |
-| linearGradient            | LinearGradient                        | Smooth Transition color for the card.             |         null          |
-| cardBorderRadius                                 | BorderRadius                       | Specifies the border radius for the card.                   | BorderRadius.all(Radius.circular(15.0)) |
-| cardMargin                       | EdgeInsets                       | Provides the margin for the card.                   | EdgeInsets.all(10.0) |
-| cardHeight                 | double | Specifies the height for the card. |         150.0          |
-| cardWidth                      | double            | Specifies the width for the card.                             |         Width of the screen          |
+| itemList                                | List&lt;Widget&gt;                      | The list of widgets which is to be sorted. |         @required         |
+| itemIdList                           | List&lt;int&gt;                      | This list contains the ids for the corresponding widgets needed for the sorting of widgets. |          @required          |
+| gridCrossAxisCount            | int                        | The number of grids in a single row in GridView.             |         2          |
 
 For help on editing package code, view the [flutter documentation](https://flutter.io/developing-packages/).
 
