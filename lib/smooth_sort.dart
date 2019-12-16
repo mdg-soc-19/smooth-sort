@@ -553,6 +553,19 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      case 'textSlideLeft':
+        {
+          await _slideAnimationController.reverse();
+
+          setState(() {
+            _data.sort();
+            _listPositionLeft = _newListSlideLeft;
+          });
+
+          await _slideAnimationController.forward();
+        }
+        break;
+
       case 'cardFade':
         {
           await _listFadeAnimationController.reverse();
