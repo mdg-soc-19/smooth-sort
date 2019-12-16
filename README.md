@@ -1,5 +1,15 @@
 # <div align="center">Smooth Sort</div>
 
+<div align="center">  
+<a href="https://flutter.io">  
+    <img src="https://img.shields.io/badge/Platform-Flutter-yellow.svg"  
+      alt="Platform" />  
+  </a>  
+  <a href="https://opensource.org/licenses/MIT">  
+    <img src="https://img.shields.io/badge/License-MIT-red.svg"  
+      alt="License: MIT" />  
+  </a>  
+  </div> 
 <div align="center">A wonderful and custom sorting animation for Flutter.</div>
 <div align="center">In today's world, developer's use now and then sorting in their mobile applications. For such developer's, Smooth Sort can become a useful package which provides wonderful and custom animation while sorting a list instead of reloading the app.</div>
 
@@ -136,7 +146,7 @@ For more info, please refer to the  `main.dart`  in example.
 | listType                                 | String                  | Specifies the type of list i.e. list/grid.               |       list       |
 | animationType                             | String             | Specifies the type of animation required to sort the list/grid. |       flipVertically       |
 | data                                | List&lt;String&gt;                      | The list of string which is to be sorted. |         @required         |
-| cardColor                           | Color                      | Specifies the color of the Card in the list/grid. |          red          |
+| cardColor                           | Color                      | Specifies the color of the Card in the list/grid. |          Colors.red          |
 | linearGradient            | LinearGradient                        | Smooth Transition color for the card.             |         null          |
 | cardBorderRadius                                 | BorderRadius                       | Specifies the border radius for the card.                   | BorderRadius.all(Radius.circular(15.0)) |
 | cardMargin                       | EdgeInsets                       | Provides the margin for the card.                   | EdgeInsets.all(10.0) |
