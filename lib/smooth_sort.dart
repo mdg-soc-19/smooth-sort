@@ -336,6 +336,29 @@ class _SmoothSortState extends State<SmoothSort>
         }
         break;
 
+      case 'textSlideLeft':
+        {
+          return Container(
+            margin: EdgeInsets.all(10.0),
+            height: 150,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                color: Colors.red),
+            child: SlideTransition(
+              position: _listPositionLeft,
+              child: ListTile(
+                title: Text(
+                  item,
+                  style: TextStyle(fontSize: 20),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            )
+          );
+        }
+        break;
+
       case 'cardFade':
         {
           return FadeTransition(

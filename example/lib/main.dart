@@ -62,7 +62,7 @@ class BodyWidgetState extends State<BodyWidget> with TickerProviderStateMixin {
     smoothSort = SmoothSort(
 //      listType: 'grid',
       data: ['Horse', 'Cow', 'Camel', 'Sheep', 'Goat', 'Help', 'Guide', 'Hello', 'Ihdid'],
-      animationType: 'textSlideRight'
+      animationType: 'textSlideLeft'
     );
 
     animationController = AnimationController(
