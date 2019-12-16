@@ -4,6 +4,12 @@ import 'package:flutter/material.dart';
 
 import 'dart:math';
 
+const _flipVerticallyDuration = Duration(milliseconds: 1000);
+const _flipHorizontallyDuration = Duration(milliseconds: 1000);
+const _slideDuration = Duration(milliseconds: 1000);
+const _fadeDuration = Duration(milliseconds: 1000);
+const _scaleDuration = Duration(milliseconds: 1000);
+
 class SmoothSort extends StatefulWidget {
   final String listType;
   final String animationType;
@@ -41,8 +47,8 @@ class _SmoothSortState extends State<SmoothSort>
     with TickerProviderStateMixin<SmoothSort> {
   GlobalKey<AnimatedListState> _listkey;
 
-  AnimationController _flipXAnimationController;
-  AnimationController _flipYAnimationController;
+  AnimationController _flipVerticallyAnimationController;
+  AnimationController _flipHorizontallyAnimationController;
 
   AnimationController _slideAnimationController;
 
@@ -72,32 +78,32 @@ class _SmoothSortState extends State<SmoothSort>
 
     _listkey = GlobalKey();
 
-    _flipXAnimationController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 1000), value: 1);
+    _flipVerticallyAnimationController = AnimationController(
+        vsync: this, duration: _flipVerticallyDuration, value: 1);
 
-    _flipYAnimationController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 1000), value: 1);
+    _flipHorizontallyAnimationController = AnimationController(
+        vsync: this, duration: _flipHorizontallyDuration, value: 1);
 
-    _slideAnimationController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 1000), value: 1);
+    _slideAnimationController =
+        AnimationController(vsync: this, duration: _slideDuration, value: 1);
 
-    _listFadeAnimationController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 1000), value: 1);
+    _listFadeAnimationController =
+        AnimationController(vsync: this, duration: _fadeDuration, value: 1);
 
-    _newListFadeAnimationController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 1000), value: 1);
+    _newListFadeAnimationController =
+        AnimationController(vsync: this, duration: _fadeDuration, value: 1);
 
-    _listScaleAnimationController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 1000), value: 1);
+    _listScaleAnimationController =
+        AnimationController(vsync: this, duration: _scaleDuration, value: 1);
 
-    _newListScaleAnimationController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 1000), value: 1);
+    _newListScaleAnimationController =
+        AnimationController(vsync: this, duration: _scaleDuration, value: 1);
 
-    _flipX =
-        Tween<double>(begin: -0.5, end: 0).animate(_flipXAnimationController);
+    _flipX = Tween<double>(begin: -0.5, end: 0)
+        .animate(_flipVerticallyAnimationController);
 
-    _flipY =
-        Tween<double>(begin: -0.5, end: 0).animate(_flipYAnimationController);
+    _flipY = Tween<double>(begin: -0.5, end: 0)
+        .animate(_flipHorizontallyAnimationController);
 
     _listSlideRight = Tween<Offset>(begin: Offset(1, 0), end: Offset.zero)
         .animate(_slideAnimationController);
@@ -597,49 +603,49 @@ class _SmoothSortState extends State<SmoothSort>
     switch (widget.animationType) {
       case 'flipVertically':
         {
-          await _flipXAnimationController.reverse();
+          await _flipVerticallyAnimationController.reverse();
 
           setState(() {
             _data.sort();
           });
 
-          await _flipXAnimationController.forward();
+          await _flipVerticallyAnimationController.forward();
         }
         break;
 
       case 'flipHorizontally':
         {
-          await _flipYAnimationController.reverse();
+          await _flipHorizontallyAnimationController.reverse();
 
           setState(() {
             _data.sort();
           });
 
-          await _flipYAnimationController.forward();
+          await _flipHorizontallyAnimationController.forward();
         }
         break;
 
       case 'reverseFlipVertically':
         {
-          await _flipXAnimationController.reverse();
+          await _flipVerticallyAnimationController.reverse();
 
           setState(() {
             _data.sort();
           });
 
-          await _flipXAnimationController.forward();
+          await _flipVerticallyAnimationController.forward();
         }
         break;
 
       case 'reverseFlipHorizontally':
         {
-          await _flipYAnimationController.reverse();
+          await _flipHorizontallyAnimationController.reverse();
 
           setState(() {
             _data.sort();
           });
 
-          await _flipYAnimationController.forward();
+          await _flipHorizontallyAnimationController.forward();
         }
         break;
 
