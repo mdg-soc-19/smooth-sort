@@ -30,10 +30,15 @@ class SmoothSort extends StatefulWidget {
   /// default to flipVertically
   final String animationType;
 
+  /// Keeps count for the number of grids in a single row
+  ///
+  /// default to 2
   final int gridCrossAxisCount;
 
+  /// The list of widgets available for sorting
   final List<Widget> itemList;
 
+  /// The list of ids corresponding to the particular item which is useful for sorting the items
   final List<int> itemIdList;
 
   SmoothSort(
@@ -167,16 +172,18 @@ class _SmoothSortState extends State<SmoothSort>
               key: _listkey,
               initialItemCount: widget.itemList.length,
               itemBuilder: (context, index, animation) {
-                return buildListItem(widget.itemList[widget.itemIdList[index]], index);
+                return buildListItem(
+                    widget.itemList[widget.itemIdList[index]], index);
               },
             )
           : GridView.builder(
               key: _listkey,
               itemCount: widget.itemList.length,
-              gridDelegate:
-                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: widget.gridCrossAxisCount),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: widget.gridCrossAxisCount),
               itemBuilder: (BuildContext context, int index) {
-                return buildListItem(widget.itemList[widget.itemIdList[index]], index);
+                return buildListItem(
+                    widget.itemList[widget.itemIdList[index]], index);
               },
             ),
     );

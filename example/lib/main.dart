@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:smooth_sort/smooth_sort.dart';
 
 void main() => runApp(MyApp());
@@ -25,17 +24,6 @@ class BodyWidget extends StatefulWidget {
 }
 
 class BodyWidgetState extends State<BodyWidget> with TickerProviderStateMixin {
-  List<String> _data = [
-    'Horse',
-    'Cow',
-    'Camel',
-    'Sheep',
-    'Goat',
-    'Help',
-    'Guide',
-    'Hello',
-    'Ihdid'
-  ];
 
   SmoothSort smoothSort;
 
@@ -46,34 +34,32 @@ class BodyWidgetState extends State<BodyWidget> with TickerProviderStateMixin {
     smoothSort = SmoothSort(
         listType: 'list',
         itemList: [
-          Card(
+          Container(
+            color: Colors.red,
+            alignment: Alignment.center,
             child: Text(
-                "Hello",
+              "A",
+              style: TextStyle(fontSize: 150.0),
             ),
           ),
-          FlutterLogo(),
           Container(
-            margin: EdgeInsets.all(10.0),
-            height: 150.0,
+            color: Colors.blueAccent,
             alignment: Alignment.center,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(15.0)),
-              gradient: LinearGradient(
-                colors: [Colors.yellow[700], Colors.redAccent],
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-                tileMode: TileMode.clamp)
+            child: Text(
+              "B",
+              style: TextStyle(fontSize: 150.0),
             ),
-            child: ListTile(
-              title: Text(
-                "Hello",
-                style: TextStyle(fontSize: 20),
-                textAlign: TextAlign.center,
-              ),
+          ),
+          Container(
+            color: Colors.yellowAccent,
+            alignment: Alignment.center,
+            child: Text(
+              "C",
+              style: TextStyle(fontSize: 150.0),
             ),
-          )
+          ),
         ],
-        itemIdList: [2, 1, 0],
+        itemIdList: [1, 2, 0],
         animationType: 'cardScale');
   }
 
