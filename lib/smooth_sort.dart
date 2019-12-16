@@ -219,7 +219,7 @@ class _SmoothSortState extends State<SmoothSort>
             builder: (BuildContext context, Widget child) {
               return Transform(
                 transform: Matrix4.identity()
-                  ..setEntry(3, 2, 0.0002)
+                  ..setEntry(3, 2, 0.00015)
                   ..rotateY(pi * _flipY.value),
                 alignment: Alignment.center,
                 child: Container(
@@ -272,7 +272,7 @@ class _SmoothSortState extends State<SmoothSort>
         break;
 
       // Widget for the card right slide animation
-      case 'cardSlideRight':
+      case 'slideRight':
         {
           return SlideTransition(
             position: _listPositionRight,
@@ -284,7 +284,7 @@ class _SmoothSortState extends State<SmoothSort>
         break;
 
       // Widget for the card left slide animation
-      case 'cardSlideLeft':
+      case 'slideLeft':
         {
           return SlideTransition(
             position: _listPositionLeft,
@@ -296,7 +296,7 @@ class _SmoothSortState extends State<SmoothSort>
         break;
 
       // Widget for the fading card animation
-      case 'cardFade':
+      case 'fade':
         {
           return FadeTransition(
             opacity: _listFadeValue,
@@ -308,7 +308,7 @@ class _SmoothSortState extends State<SmoothSort>
         break;
 
       // Widget for the card scaling animation
-      case 'cardScale':
+      case 'scale':
         {
           return ScaleTransition(
             scale: _listScaleValue,
@@ -386,7 +386,7 @@ class _SmoothSortState extends State<SmoothSort>
         break;
 
       // Implementation of sorting animation for card right slide animation
-      case 'cardSlideRight':
+      case 'slideRight':
         {
           await _slideAnimationController.reverse();
 
@@ -400,7 +400,7 @@ class _SmoothSortState extends State<SmoothSort>
         break;
 
       // Implementation of sorting animation for card left slide animation
-      case 'cardSlideLeft':
+      case 'slideLeft':
         {
           await _slideAnimationController.reverse();
 
@@ -414,7 +414,7 @@ class _SmoothSortState extends State<SmoothSort>
         break;
 
       // Implementation of sorting animation for card fading animation
-      case 'cardFade':
+      case 'fade':
         {
           await _listFadeAnimationController.reverse();
 
@@ -428,7 +428,7 @@ class _SmoothSortState extends State<SmoothSort>
         break;
 
       // Implementation of sorting animation for card scaling animation
-      case 'cardScale':
+      case 'scale':
         {
           await _listScaleAnimationController.reverse();
 

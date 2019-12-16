@@ -60,7 +60,7 @@ class BodyWidgetState extends State<BodyWidget> with TickerProviderStateMixin {
           ),
         ],
         itemIdList: [1, 2, 0],
-        animationType: 'cardScale');
+        animationType: 'scale');
   }
 
   @override
