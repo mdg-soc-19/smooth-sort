@@ -1,5 +1,15 @@
 # <div align="center">Smooth Sort</div>
 
+<div align="center">  
+<a href="https://flutter.io">  
+    <img src="https://img.shields.io/badge/Platform-Flutter-yellow.svg"  
+      alt="Platform" />  
+  </a>  
+  <a href="https://opensource.org/licenses/MIT">  
+    <img src="https://img.shields.io/badge/License-MIT-red.svg"  
+      alt="License: MIT" />  
+  </a>  
+  </div> 
 <div align="center">A wonderful and custom sorting animation for Flutter.</div>
 <div align="center">In today's world, developer's use now and then sorting in their mobile applications. For such developer's, Smooth Sort can become a useful package which provides wonderful and custom animation while sorting a list instead of reloading the app.</div>
 
