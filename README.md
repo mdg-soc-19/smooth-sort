@@ -19,6 +19,8 @@
 
 In today's world, developer's use now and then sorting in their mobile applications. For such developer's, Smooth Sort can become a useful package which provides wonderful and custom animation while sorting a list instead of reloading the app.
 
+Explore how to use SmoothSort in your Flutter app through this [medium blog](https://medium.com/mobile-development-group/smooth-sort-a-flutter-package-for-wonderful-sorting-animation-b3d3b56a4d7b).
+
 # Table of Contents
 * [Installing](#installing)
 * [Demo](#demo)
@@ -115,6 +117,18 @@ import 'package:smooth_sort/smooth_sort.dart';
 </tr>
 </table>
 </div>
+
+## Example in Medium blog
+In the medium blog as well as the example app, I have implemented this animation for the shopping app for sorting the products through price using the Smooth Sort package.
+<tr>
+<td>
+<div align="center"><code>Scale Animation</code></div>
+<br>
+<div align="center">
+<img src="https://miro.medium.com/max/645/1*XXw6_7DBCmt9ULPy9DldGw.gif" height = "400px"/> 
+</div>
+</td>
+</tr>
 
 # Usage
 For adding the SmoothSort in your Flutter app, you have to simply provide the options for ListView or GridView with the list of the widgets to be displayed in the list/grid with the another list of their corresponding itemIds.
