@@ -9,6 +9,10 @@
     <img src="https://img.shields.io/badge/License-MIT-red.svg"  
       alt="License: MIT" />  
   </a>  
+  <a href="https://pub.dev/packages/smooth_sort">  
+    <img src="https://img.shields.io/pub/v/smooth_sort.svg"  
+      alt="Pub Package" />  
+  </a>  
 </div> 
 
 </br>  
@@ -16,12 +20,41 @@
 In today's world, developer's use now and then sorting in their mobile applications. For such developer's, Smooth Sort can become a useful package which provides wonderful and custom animation while sorting a list instead of reloading the app.
 
 # Table of Contents
+* [Installing](#installing)
 * [Demo](#demo)
 * [Usage](#usage)
 * [Documentation](#documentation)
 * [Algorithm](#algorithm)
 * [Bugs or Requests](#bugs-or-requests)
 * [License](#license)
+
+# Installing
+### 1. Depend on it
+
+Add this to your package's pubspec.yaml file:
+
+```yaml
+dependencies:
+  smooth_sort: ^1.0.1
+```
+
+### 2. Install it
+You can install packages from the command line:
+
+with Flutter:
+
+```shell
+$ flutter pub get
+```
+Alternatively, your editor might support flutter pub get. Check the docs for your editor to learn more.
+
+### 3. Import it
+Now in your Dart code, you can use:
+
+```dart
+import 'package:smooth_sort/smooth_sort.dart';
+```
+ 
 
 # Demo
 <div align="center">
