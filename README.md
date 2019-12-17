@@ -2,6 +2,9 @@
 
 # <div align="center">Smooth Sort</div>
 
+<div align="center">
+<img src="https://raw.githubusercontent.com/mdg-soc-19/smooth-sort/master/smoothSortGifs/smooth_sort_cover.png" />
+</div>
 <div align="center">  
 <a href="https://flutter.io">  
     <img src="https://img.shields.io/badge/Platform-Flutter-yellow.svg"  
