@@ -1,8 +1,8 @@
 name: smooth_sort
-description: A new Flutter package.
-version: 0.0.1
-author:
-homepage:
+description: A wonderful and custom sorting animation for Flutter.
+version: 1.0.0
+author: Hemil Panchiwala<hemilmodi54321@gmail.com>
+homepage: https://github.com/mdg-soc-19/smooth-sort
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
