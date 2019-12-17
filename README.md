@@ -1,12 +1,7 @@
-
-
-# <div align="center">Smooth Sort</div>
-
-<div align="center">
 <img src="https://raw.githubusercontent.com/mdg-soc-19/smooth-sort/master/smoothSortGifs/smooth_sort_cover.png" />
-</div>
+
 <div align="center">  
-<a href="https://flutter.io">  
+  <a href="https://flutter.io">  
     <img src="https://img.shields.io/badge/Platform-Flutter-yellow.svg"  
       alt="Platform" />  
   </a>  
@@ -14,9 +9,11 @@
     <img src="https://img.shields.io/badge/License-MIT-red.svg"  
       alt="License: MIT" />  
   </a>  
-  </div> 
-<div align="center">A wonderful and custom sorting animation for Flutter.</div>
-<div align="center">In today's world, developer's use now and then sorting in their mobile applications. For such developer's, Smooth Sort can become a useful package which provides wonderful and custom animation while sorting a list instead of reloading the app.</div>
+</div> 
+
+</br>  
+
+In today's world, developer's use now and then sorting in their mobile applications. For such developer's, Smooth Sort can become a useful package which provides wonderful and custom animation while sorting a list instead of reloading the app.
 
 # Table of Contents
 * [Demo](#demo)
@@ -31,54 +28,54 @@
 <table>
 <tr>
 <td>
-<div align="center">Flip Vertically</div>
-<div align="center">animationType: flipVertically</div>
+<div align="center"><code>Flip Vertically</code></div>
+<div align="center"><code>animationType: flipVertically</code></div>
 <br>
 <img src="https://raw.githubusercontent.com/mdg-soc-19/smooth-sort/master/smoothSortGifs/flipVertically.gif" height = "400px"/>  
 </td>
 <td>
-<div align="center">Fade</div>
-<div align="center">animationType: fade</div>
+<div align="center"><code>Fade</code></div>
+<div align="center"><code>animationType: fade</code></div>
 <br>
 <img src="https://raw.githubusercontent.com/mdg-soc-19/smooth-sort/master/smoothSortGifs/fade.gif" height = "400px"/>  
 </td>
 <td>
-<div align="center">Slide Right</div>
-<div align="center">animationType: slideRight</div>
+<div align="center"><code>Slide Right</code></div>
+<div align="center"><code>animationType: slideRight</code></div>
 <br>
 <img src="https://raw.githubusercontent.com/mdg-soc-19/smooth-sort/master/smoothSortGifs/slideRight.gif" height = "400px"/>  
 </td>
 </tr>
 <tr>
 <td>
-<div align="center">Flip Horizontally</div>
-<div align="center">animationType: flipHorizontally</div>
+<div align="center"><code>Flip Horizontally</code></div>
+<div align="center"><code>animationType: flipHorizontally</code></div>
 <br>
 <img src="https://raw.githubusercontent.com/mdg-soc-19/smooth-sort/master/smoothSortGifs/flipHorizontally.gif" height = "400px"/>  
 </td>
 <td>
-<div align="center">Scale</div>
-<div align="center">animationType: scale</div>
+<div align="center"><code>Scale</code></div>
+<div align="center"><code>animationType: scale</code></div>
 <br>
 <img src="https://raw.githubusercontent.com/mdg-soc-19/smooth-sort/master/smoothSortGifs/scale.gif" height = "400px"/>  
 </td>
 <td>
-<div align="center">Slide Left</div>
-<div align="center">animationType: slideLeft</div>
+<div align="center"><code>Slide Left</code></div>
+<div align="center"><code>animationType: slideLeft</code></div>
 <br>
 <img src="https://raw.githubusercontent.com/mdg-soc-19/smooth-sort/master/smoothSortGifs/slideLeft.gif" height = "400px"/>  
 </td>
 </tr>
 <tr align="center">
 <td>
-<div align="center">Reverse Flip Vertically</div>
-<div align="center">animationType: reverseFlipVertically</div>
+<div align="center"><code>Reverse Flip Vertically</code></div>
+<div align="center"><code>animationType: reverseFlipVertically</code></div>
 <br>
 <img src="https://raw.githubusercontent.com/mdg-soc-19/smooth-sort/master/smoothSortGifs/reverseFlipVertically.gif" height = "400px"/>  
 </td>
 <td>
-<div align="center">Reverse Flip Horizontally</div>
-<div align="center">animationType: reverseFlipHorizontally</div>
+<div align="center"><code>Reverse Flip Horizontally</code></div>
+<div align="center"><code>animationType: reverseFlipHorizontally</code></div>
 <br>
 <img src="https://raw.githubusercontent.com/mdg-soc-19/smooth-sort/master/smoothSortGifs/reverseFlipHorizontally.gif" height = "400px"/>  
 </td>
