@@ -28,6 +28,7 @@ Explore how to use SmoothSort in your Flutter app through this [medium blog](htt
 * [Documentation](#documentation)
 * [Algorithm](#algorithm)
 * [Bugs or Requests](#bugs-or-requests)
+* [Contributors](#contributors)
 * [License](#license)
 
 # Installing
