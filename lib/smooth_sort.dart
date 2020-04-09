@@ -38,6 +38,11 @@ class SmoothSort extends StatefulWidget {
   /// The list of widgets available for sorting
   final List<Widget> itemList;
 
+  /// The boolean variable for the sorting ascendant or descendant
+  ///
+  /// default true
+  final bool ascendant;
+
   /// The list of ids corresponding to the particular item which is useful for sorting the items
   final List<int> itemIdList;
 
@@ -46,6 +51,7 @@ class SmoothSort extends StatefulWidget {
       this.listType = 'list',
       @required this.itemList,
       @required this.itemIdList,
+      this.ascendant = true,
       this.animationType = 'flipVertically',
       this.gridCrossAxisCount = 2});
 
@@ -55,7 +61,7 @@ class SmoothSort extends StatefulWidget {
   _SmoothSortState createState() => __smoothSortState;
 
   void onPress() {
-    __smoothSortState.sortList();
+    __smoothSortState.sortList(ascendant);
   }
 }
 
@@ -331,16 +337,22 @@ class _SmoothSortState extends State<SmoothSort>
     }
   }
 
-  void sortList() async {
+  void sortList(bool ascendant) async {
     switch (widget.animationType) {
       // Implementation of sorting animation for vertically flipping animation
       case 'flipVertically':
         {
           await _flipVerticallyAnimationController.reverse();
 
-          setState(() {
-            widget.itemIdList.sort();
-          });
+          if (ascendant) {
+            setState(() {
+              widget.itemIdList.sort();
+            });
+          } else {
+            setState(() {
+              widget.itemIdList.sort((a, b) => b.compareTo(a));
+            });
+          }
 
           await _flipVerticallyAnimationController.forward();
         }
@@ -351,9 +363,15 @@ class _SmoothSortState extends State<SmoothSort>
         {
           await _flipHorizontallyAnimationController.reverse();
 
-          setState(() {
-            widget.itemIdList.sort();
-          });
+          if (ascendant) {
+            setState(() {
+              widget.itemIdList.sort();
+            });
+          } else {
+            setState(() {
+              widget.itemIdList.sort((a, b) => b.compareTo(a));
+            });
+          }
 
           await _flipHorizontallyAnimationController.forward();
         }
@@ -364,9 +382,15 @@ class _SmoothSortState extends State<SmoothSort>
         {
           await _flipVerticallyAnimationController.reverse();
 
-          setState(() {
-            widget.itemIdList.sort();
-          });
+          if (ascendant) {
+            setState(() {
+              widget.itemIdList.sort();
+            });
+          } else {
+            setState(() {
+              widget.itemIdList.sort((a, b) => b.compareTo(a));
+            });
+          }
 
           await _flipVerticallyAnimationController.forward();
         }
@@ -377,9 +401,15 @@ class _SmoothSortState extends State<SmoothSort>
         {
           await _flipHorizontallyAnimationController.reverse();
 
-          setState(() {
-            widget.itemIdList.sort();
-          });
+          if (ascendant) {
+            setState(() {
+              widget.itemIdList.sort();
+            });
+          } else {
+            setState(() {
+              widget.itemIdList.sort((a, b) => b.compareTo(a));
+            });
+          }
 
           await _flipHorizontallyAnimationController.forward();
         }
@@ -390,10 +420,17 @@ class _SmoothSortState extends State<SmoothSort>
         {
           await _slideAnimationController.reverse();
 
-          setState(() {
-            widget.itemIdList.sort();
-            _listPositionRight = _newListSlideRight;
-          });
+          if (ascendant) {
+            setState(() {
+              widget.itemIdList.sort();
+              _listPositionRight = _newListSlideRight;
+            });
+          } else {
+            setState(() {
+              widget.itemIdList.sort((a, b) => b.compareTo(a));
+              _listPositionRight = _newListSlideRight;
+            });
+          }
 
           await _slideAnimationController.forward();
         }
@@ -404,10 +441,17 @@ class _SmoothSortState extends State<SmoothSort>
         {
           await _slideAnimationController.reverse();
 
-          setState(() {
-            widget.itemIdList.sort();
-            _listPositionLeft = _newListSlideLeft;
-          });
+          if (ascendant) {
+            setState(() {
+              widget.itemIdList.sort();
+              _listPositionLeft = _newListSlideLeft;
+            });
+          } else {
+            setState(() {
+              widget.itemIdList.sort((a, b) => b.compareTo(a));
+              _listPositionLeft = _newListSlideLeft;
+            });
+          }
 
           await _slideAnimationController.forward();
         }
@@ -418,10 +462,17 @@ class _SmoothSortState extends State<SmoothSort>
         {
           await _listFadeAnimationController.reverse();
 
-          setState(() {
-            widget.itemIdList.sort();
-            _listFadeValue = _fadeIn;
-          });
+          if (ascendant) {
+            setState(() {
+              widget.itemIdList.sort();
+              _listFadeValue = _fadeIn;
+            });
+          } else {
+            setState(() {
+              widget.itemIdList.sort((a, b) => b.compareTo(a));
+              _listFadeValue = _fadeIn;
+            });
+          }
 
           await _newListFadeAnimationController.reverse();
         }
@@ -432,10 +483,17 @@ class _SmoothSortState extends State<SmoothSort>
         {
           await _listScaleAnimationController.reverse();
 
-          setState(() {
-            widget.itemIdList.sort();
-            _listScaleValue = __negativeScale;
-          });
+          if (ascendant) {
+            setState(() {
+              widget.itemIdList.sort();
+              _listScaleValue = __negativeScale;
+            });
+          } else {
+            setState(() {
+              widget.itemIdList.sort((a, b) => b.compareTo(a));
+              _listScaleValue = __negativeScale;
+            });
+          }
 
           await _newListScaleAnimationController.reverse();
         }
@@ -443,9 +501,15 @@ class _SmoothSortState extends State<SmoothSort>
 
       default:
         {
-          setState(() {
-            widget.itemIdList.sort();
-          });
+          if (ascendant) {
+            setState(() {
+              widget.itemIdList.sort();
+            });
+          } else {
+            setState(() {
+              widget.itemIdList.sort((a, b) => b.compareTo(a));
+            });
+          }
         }
     }
   }
