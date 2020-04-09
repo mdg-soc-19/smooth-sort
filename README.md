@@ -218,6 +218,16 @@ If you encounter any problems feel free to open an issue. If you feel the librar
 missing a feature, please raise a ticket on Github and I'll look into it.  
 Pull request are also welcome.  
 
+# Contributors  
+
+Thanks goes to these awesome people! :blush:
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/albrecht99"><img src="https://avatars3.githubusercontent.com/u/40899882?s=400&u=8a8fa9a5fe3f883e9af17354a717308ef71157f1&v=4" width="100px;" alt=""/><br /><sub><b>Giulliano Albrecht</b></sub></a></td>
+  </tr>
+</table>
+
 # License
 
 SmoothSort is licensed under `MIT license`. View [license](https://github.com/mdg-soc-19/smooth-sort/blob/master/LICENSE).
