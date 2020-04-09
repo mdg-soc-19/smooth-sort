@@ -138,6 +138,7 @@ First create the object for SmoothSort
 ```dart
 SmoothSort smoothSort = SmoothSort(
 	listType: 'list',	 // specify the listType i.e. list or grid
+	ascendant: true,	// sort ascending or descending
 	itemList: [  
 	  Container(  
 	    color: Colors.red,  
@@ -200,6 +201,7 @@ For more info, please refer to the  `main.dart`  in example.
 | itemList                                | List&lt;Widget&gt;                      | The list of widgets which is to be sorted. |         @required         |
 | itemIdList                           | List&lt;int&gt;                      | This list contains the ids for the corresponding widgets needed for the sorting of widgets. |          @required          |
 | gridCrossAxisCount            | int                        | The number of grids in a single row in GridView.             |         2          |
+| ascendant            | bool                        | Sort ascending or descending             |         true          |
 
 For help on editing package code, view the [flutter documentation](https://flutter.io/developing-packages/).
 
