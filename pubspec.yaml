@@ -5,7 +5,7 @@ author: Hemil Panchiwala<hemilmodi54321@gmail.com>
 homepage: https://github.com/mdg-soc-19/smooth-sort
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:

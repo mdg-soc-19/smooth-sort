@@ -24,7 +24,7 @@ class BodyWidget extends StatefulWidget {
 }
 
 class BodyWidgetState extends State<BodyWidget> with TickerProviderStateMixin {
-  SmoothSort smoothSort;
+  late SmoothSort smoothSort;
 
   @override
   void initState() {
@@ -315,7 +315,7 @@ class BodyWidgetState extends State<BodyWidget> with TickerProviderStateMixin {
       child: Column(
         children: <Widget>[
           smoothSort,
-          RaisedButton(
+          ElevatedButton(
             child: Text("Sort By Price"),
             onPressed: () {
               smoothSort.onPress();
