@@ -47,10 +47,10 @@ class SmoothSort extends StatefulWidget {
   final List<int> itemIdList;
 
   SmoothSort(
-      {Key key,
+      {Key? key,
       this.listType = 'list',
-      @required this.itemList,
-      @required this.itemIdList,
+      required this.itemList,
+      required this.itemIdList,
       this.ascendant = true,
       this.animationType = 'flipVertically',
       this.gridCrossAxisCount = 2});
@@ -68,42 +68,42 @@ class SmoothSort extends StatefulWidget {
 class _SmoothSortState extends State<SmoothSort>
     with TickerProviderStateMixin<SmoothSort> {
   /// GlobalKey for the list
-  GlobalKey<AnimatedListState> _listkey;
+  GlobalKey<AnimatedListState>? _listkey;
 
   /// AnimationController for the flipVertically animation
-  AnimationController _flipVerticallyAnimationController;
+  late AnimationController _flipVerticallyAnimationController;
 
   /// AnimationController for the flipHorizontally animation
-  AnimationController _flipHorizontallyAnimationController;
+  late AnimationController _flipHorizontallyAnimationController;
 
   /// AnimationController for the slide animation
-  AnimationController _slideAnimationController;
+  late AnimationController _slideAnimationController;
 
   /// AnimationController for the fade animation
-  AnimationController _listFadeAnimationController,
+  late AnimationController _listFadeAnimationController,
       _newListFadeAnimationController;
 
   /// AnimationController for the scale animation
-  AnimationController _listScaleAnimationController,
+  late AnimationController _listScaleAnimationController,
       _newListScaleAnimationController;
 
   /// Tween object for vertical flip animation
-  Animation<double> _flipX;
+  late Animation<double> _flipX;
 
   /// Tween object for horizontal flip animation
-  Animation<double> _flipY;
+  late Animation<double> _flipY;
 
   /// Tween object for slideRight animation
-  Animation<Offset> _listSlideRight, _newListSlideRight, _listPositionRight;
+  Animation<Offset>? _listSlideRight, _newListSlideRight, _listPositionRight;
 
   /// Tween object for slideLeft animation
-  Animation<Offset> _listSlideLeft, _newListSlideLeft, _listPositionLeft;
+  Animation<Offset>? _listSlideLeft, _newListSlideLeft, _listPositionLeft;
 
   /// Tween object for fade animation
-  Animation<double> _fadeIn, _fadeOut, _listFadeValue;
+  Animation<double>? _fadeIn, _fadeOut, _listFadeValue;
 
   /// Tween object for scale animation
-  Animation<double> _positiveScale, __negativeScale, _listScaleValue;
+  Animation<double>? _positiveScale, __negativeScale, _listScaleValue;
 
   @override
   void initState() {
@@ -202,7 +202,7 @@ class _SmoothSortState extends State<SmoothSort>
         {
           return AnimatedBuilder(
             animation: _flipX,
-            builder: (BuildContext context, Widget child) {
+            builder: (BuildContext context, Widget? child) {
               return Transform(
                 transform: Matrix4.identity()
                   ..setEntry(3, 2, 0.0002)
@@ -215,14 +215,13 @@ class _SmoothSortState extends State<SmoothSort>
             },
           );
         }
-        break;
 
       // Widget for the horizontally flipping animation
       case 'flipHorizontally':
         {
           return AnimatedBuilder(
             animation: _flipY,
-            builder: (BuildContext context, Widget child) {
+            builder: (BuildContext context, Widget? child) {
               return Transform(
                 transform: Matrix4.identity()
                   ..setEntry(3, 2, 0.00015)
@@ -235,14 +234,13 @@ class _SmoothSortState extends State<SmoothSort>
             },
           );
         }
-        break;
 
       // Widget for the reverse vertically flipping animation
       case 'reverseFlipVertically':
         {
           return AnimatedBuilder(
             animation: _flipX,
-            builder: (BuildContext context, Widget child) {
+            builder: (BuildContext context, Widget? child) {
               return Transform(
                 transform: Matrix4.identity()
                   ..setEntry(3, 2, 0.0002)
@@ -255,14 +253,13 @@ class _SmoothSortState extends State<SmoothSort>
             },
           );
         }
-        break;
 
       // Widget for the reverse horizontally flipping animation
       case 'reverseFlipHorizontally':
         {
           return AnimatedBuilder(
             animation: _flipY,
-            builder: (BuildContext context, Widget child) {
+            builder: (BuildContext context, Widget? child) {
               return Transform(
                 transform: Matrix4.identity()
                   ..setEntry(3, 2, 0.0002)
@@ -275,56 +272,51 @@ class _SmoothSortState extends State<SmoothSort>
             },
           );
         }
-        break;
 
       // Widget for the card right slide animation
       case 'slideRight':
         {
           return SlideTransition(
-            position: _listPositionRight,
+            position: _listPositionRight!,
             child: Container(
               child: item,
             ),
           );
         }
-        break;
 
       // Widget for the card left slide animation
       case 'slideLeft':
         {
           return SlideTransition(
-            position: _listPositionLeft,
+            position: _listPositionLeft!,
             child: Container(
               child: item,
             ),
           );
         }
-        break;
 
       // Widget for the fading card animation
       case 'fade':
         {
           return FadeTransition(
-            opacity: _listFadeValue,
+            opacity: _listFadeValue!,
             child: Container(
               child: item,
             ),
           );
         }
-        break;
 
       // Widget for the card scaling animation
       case 'scale':
         {
           return ScaleTransition(
-            scale: _listScaleValue,
+            scale: _listScaleValue!,
             alignment: Alignment.center,
             child: Container(
               child: item,
             ),
           );
         }
-        break;
 
       default:
         {
