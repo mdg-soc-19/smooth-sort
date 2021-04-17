@@ -226,6 +226,7 @@ Thanks goes to these awesome people! :blush:
 <table>
   <tr>
     <td align="center"><a href="https://github.com/albrecht99"><img src="https://avatars3.githubusercontent.com/u/40899882?s=400&u=8a8fa9a5fe3f883e9af17354a717308ef71157f1&v=4" width="100px;" alt=""/><br /><sub><b>Giulliano Albrecht</b></sub></a></td>
+    <td align="center"><a href="https://github.com/mdudek"> <img src="https://avatars.githubusercontent.com/u/5558549?s=400&u=8a8fa9a5fe3f883e9af17354a717308ef71157f1&v=4" width="100px;" alt=""/><br /><sub><b>Michael Dudek</b></sub></a></td>
   </tr>
 </table>
 
