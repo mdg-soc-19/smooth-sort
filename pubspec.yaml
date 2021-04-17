@@ -1,6 +1,6 @@
 name: smooth_sort
 description: A wonderful and custom sorting animation for Flutter.
-version: 1.0.0
+version: 2.0.0
 homepage: https://github.com/mdg-soc-19/smooth-sort
 
 environment:

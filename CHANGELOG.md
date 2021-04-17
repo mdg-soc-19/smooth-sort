@@ -1,4 +1,4 @@
-## [1.0.2]
+## [2.0.0]
 * Added null safety support and descendant sorting for all the supported animations.
 
 ## [1.0.1] 
