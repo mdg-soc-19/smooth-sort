@@ -38,7 +38,7 @@ Add this to your package's pubspec.yaml file:
 
 ```yaml
 dependencies:
-  smooth_sort: ^2.0.0
+  smooth_sort: ^2.0.1
 ```
 
 ### 2. Install it
